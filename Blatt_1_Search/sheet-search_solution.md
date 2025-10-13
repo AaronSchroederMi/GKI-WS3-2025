@@ -120,4 +120,16 @@ Ziel erreicht über Wü-Nü-Mü (Optimale Lösung)
 | Breitensuche |     7      |      Queue: 4       |          6          | Graph-Search |       Ja        |
 |      A*      |     3      |      Queue: 4       |          2          | Tree-Search  |       Ja        |
 # Search.03: Dominanz
+### 1. Was bedeutet *“Eine Heuristik $`h_1(n)`$ dominiert eine Heuristik $`h_2(n)`$”*? 
+Eine Heuristik dominiert eine andere Heuristik, wenn sie für alle Nodes n einen Größeren oder gleichgroßen Schätzwert angibt.  
+Desweiteren dürfen $`h_1(n)`$ und $`h_2(n)`$ nicht identisch sein.
+### 2. Wie wirkt sich die Nutzung einer dominierenden Heuristik $`h_1(n)`$ in A\* aus (im Vergleich zur Nutzung einer Heuristik $`h_2`$, die von $`h_1`$ dominiert wird)?
+Eine Heuristik die näher an der Optimal Lösung $`h^*(n)`$ liegt, während sie immernoch zulässig ist, wird ihre weiter entfernten Heuristiken domminieren.  
+Das heißt sie wird zumindest eine gleich gute Lösung, wenn nicht sogar ein bessere liefern.
+### 3. Geben Sie selbstgewählte Beispiele an.
+Zwischen Städten reisen; Annahme $`h_1(n)`$, $`h_2(n)`$ sind zulässig  
+$`h_1(n)`$: Luftlinie zwischen zwei Standorten  
+$`h_2(n)`$: Pessimistische wegschätzung
+
+Es wird hier also $`h_2(n)`$ eine Bessere Lösung als $`h_1(n)`$ liefern
 # Search.04: Beweis der Optimalität von A*
