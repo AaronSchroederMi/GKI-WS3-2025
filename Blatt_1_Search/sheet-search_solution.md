@@ -1,41 +1,41 @@
 # Bonus
 # Search.01: Problemformalisierung, Zustandsraum
 ### 1. Formalisieren Sie das Problem (Zustände, Aktionen, Start- und Endzustand).
-Zustände:
-1. Start: 1 Pferde, 3 Orks, 3 Elben; Ziel: 0 Pferde, 0 Orks, 0 Elben <-- <span style="color: green;">Startzustand</span>
-- Start: 1 Pferde, 3 Orks, 2 Elben; Ziel: 0 Pferde, 0 Orks, 1 Elben <span style="color: red;">Invalid</span>
-- Start: 1 Pferde, 3 Orks, 1 Elben; Ziel: 0 Pferde, 0 Orks, 2 Elben <span style="color: red;">Invalid</span>
+**Zustände:**
+1. Start: 1 Pferde, 3 Orks, 3 Elben; Ziel: 0 Pferde, 0 Orks, 0 Elben| <-- **<span style="color: green;">Startzustand</span>**
 2. Start: 1 Pferde, 3 Orks, 0 Elben; Ziel: 0 Pferde, 0 Orks, 3 Elben 
 3. Start: 1 Pferde, 2 Orks, 3 Elben; Ziel: 0 Pferde, 1 Orks, 0 Elben 
 4. Start: 1 Pferde, 2 Orks, 2 Elben; Ziel: 0 Pferde, 1 Orks, 1 Elben 
-- Start: 1 Pferde, 2 Orks, 1 Elben; Ziel: 0 Pferde, 1 Orks, 2 Elben <span style="color: red;">Invalid</span>
 5. Start: 1 Pferde, 2 Orks, 0 Elben; Ziel: 0 Pferde, 1 Orks, 3 Elben 
 6. Start: 1 Pferde, 1 Orks, 3 Elben; Ziel: 0 Pferde, 2 Orks, 0 Elben 
-- Start: 1 Pferde, 1 Orks, 2 Elben; Ziel: 0 Pferde, 2 Orks, 1 Elben <span style="color: red;">Invalid</span>
 7. Start: 1 Pferde, 1 Orks, 1 Elben; Ziel: 0 Pferde, 2 Orks, 2 Elben 
 8. Start: 1 Pferde, 1 Orks, 0 Elben; Ziel: 0 Pferde, 2 Orks, 3 Elben 
-- Start: 1 Pferde, 0 Orks, 3 Elben; Ziel: 0 Pferde, 3 Orks, 0 Elben <span style="color: red;">Invalid</span>
-- Start: 1 Pferde, 0 Orks, 2 Elben; Ziel: 0 Pferde, 3 Orks, 1 Elben <span style="color: red;">Invalid</span>
-- Start: 1 Pferde, 0 Orks, 1 Elben; Ziel: 0 Pferde, 3 Orks, 2 Elben <span style="color: red;">Invalid</span>
-- Start: 1 Pferde, 0 Orks, 0 Elben; Ziel: 0 Pferde, 3 Orks, 3 Elben <span style="color: red;">Invalid</span>
-- Start: 0 Pferde, 3 Orks, 3 Elben; Ziel: 1 Pferde, 0 Orks, 0 Elben <span style="color: red;">Invalid</span>
-- Start: 0 Pferde, 3 Orks, 2 Elben; Ziel: 1 Pferde, 0 Orks, 1 Elben <span style="color: red;">Invalid</span>
-- Start: 0 Pferde, 3 Orks, 1 Elben; Ziel: 1 Pferde, 0 Orks, 2 Elben <span style="color: red;">Invalid</span>
-- Start: 0 Pferde, 3 Orks, 0 Elben; Ziel: 1 Pferde, 0 Orks, 3 Elben <span style="color: red;">Invalid</span>
 9. Start: 0 Pferde, 2 Orks, 3 Elben; Ziel: 1 Pferde, 1 Orks, 0 Elben
 10. Start: 0 Pferde, 2 Orks, 2 Elben; Ziel: 1 Pferde, 1 Orks, 1 Elben
-- Start: 0 Pferde, 2 Orks, 1 Elben; Ziel: 1 Pferde, 1 Orks, 2 Elben <span style="color: red;">Invalid</span>
 11. Start: 0 Pferde, 2 Orks, 0 Elben; Ziel: 1 Pferde, 1 Orks, 3 Elben 
 12. Start: 0 Pferde, 1 Orks, 3 Elben; Ziel: 1 Pferde, 2 Orks, 0 Elben
-- Start: 0 Pferde, 1 Orks, 2 Elben; Ziel: 1 Pferde, 2 Orks, 1 Elben <span style="color: red;">Invalid</span>
 13. Start: 0 Pferde, 1 Orks, 1 Elben; Ziel: 1 Pferde, 2 Orks, 2 Elben
 14. Start: 0 Pferde, 1 Orks, 0 Elben; Ziel: 1 Pferde, 2 Orks, 3 Elben
 15. Start: 0 Pferde, 0 Orks, 3 Elben; Ziel: 1 Pferde, 3 Orks, 0 Elben
-- Start: 0 Pferde, 0 Orks, 2 Elben; Ziel: 1 Pferde, 3 Orks, 1 Elben <span style="color: red;">Invalid</span>
-- Start: 0 Pferde, 0 Orks, 1 Elben; Ziel: 1 Pferde, 3 Orks, 2 Elben <span style="color: red;">Invalid</span>
-16. Start: 0 Pferde, 0 Orks, 0 Elben; Ziel: 1 Pferde, 3 Orks, 3 Elben  <-- <span style="color: green;">Endzustand</span>
+16. Start: 0 Pferde, 0 Orks, 0 Elben; Ziel: 1 Pferde, 3 Orks, 3 Elben| <-- **<span style="color: green;">Endzustand</span>**
+- Start: 1 Pferde, 3 Orks, 2 Elben; Ziel: 0 Pferde, 0 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 3 Orks, 1 Elben; Ziel: 0 Pferde, 0 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 2 Orks, 1 Elben; Ziel: 0 Pferde, 1 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 1 Orks, 2 Elben; Ziel: 0 Pferde, 2 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 0 Orks, 3 Elben; Ziel: 0 Pferde, 3 Orks, 0 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 0 Orks, 2 Elben; Ziel: 0 Pferde, 3 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 0 Orks, 1 Elben; Ziel: 0 Pferde, 3 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 1 Pferde, 0 Orks, 0 Elben; Ziel: 0 Pferde, 3 Orks, 3 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 3 Orks, 3 Elben; Ziel: 1 Pferde, 0 Orks, 0 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 3 Orks, 2 Elben; Ziel: 1 Pferde, 0 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 3 Orks, 1 Elben; Ziel: 1 Pferde, 0 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 3 Orks, 0 Elben; Ziel: 1 Pferde, 0 Orks, 3 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 2 Orks, 1 Elben; Ziel: 1 Pferde, 1 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 1 Orks, 2 Elben; Ziel: 1 Pferde, 2 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 0 Orks, 2 Elben; Ziel: 1 Pferde, 3 Orks, 1 Elben | **<span style="color: red;">Invalid</span>**
+- Start: 0 Pferde, 0 Orks, 1 Elben; Ziel: 1 Pferde, 3 Orks, 2 Elben | **<span style="color: red;">Invalid</span>**
 
-Aktionen:
+**Aktionen:**
   - (2-0-R) 2 Orks reiten rechts
   - (2-E-R) 2 Elben reiten rechts
   - (1-OE-R) 1 Ork und Elbe reiten rechts
@@ -82,7 +82,8 @@ Ziel erreicht über Wü-Nü-Mü (Optimale Lösung)
 3. h(n) = 0 für jeden Zielknoten
 
 Dies gilt zu überprüfen:
--[ ] h(n) <= h*(n) <span style="color: red;">Invalid</span>
+
+- [ ] h(n) <= h*(n)
 
  h*(n) errechnet durch die Wegkosten
 
@@ -106,11 +107,17 @@ Die Nünberg wegschätzung muss also angepasst werden (Vorschlag: 150) und
 damit ist der h(n) Datensatz Zulässig was für die A* Tree-Search variante ausreichend ist
 ## 3. A*
 ```
-Queue [Wü(0+170)];                                       Begegnete Elemente []
-Queue [WüEr(186+400), WüFr(217+100), (WüNü(103+150))];   Begegnete Elemente [Wü]
+Queue [Wü(0+170)];                                                      Begegnete Elemente []
+Queue [WüEr(186+400), WüFr(217+100), (WüNü(103+150))];                  Begegnete Elemente [Wü]
 Queue [WüEr(186+400), WüNüSt(286+300), WüFr(217+100), WüNüMü(270+0)];   Begegnete Elemente [Wü, Nü]
 
 Ziel erreicht über Wü-Nü-Mü (Optimale Lösung)
 ```
+
+|              | Durchläufe | Datenstruktur größe | Begeneten Elementen | Variante     | Optimale Lösung |
+|:------------:|:----------:|:-------------------:|:-------------------:|--------------|:---------------:|
+| Tiefensuche  |     5      |      Stack: 3       |          4          | Graph-Search |      Nein       |
+| Breitensuche |     7      |      Queue: 4       |          6          | Graph-Search |       Ja        |
+|      A*      |     3      |      Queue: 4       |          2          | Tree-Search  |       Ja        |
 # Search.03: Dominanz
 # Search.04: Beweis der Optimalität von A*
