@@ -1,4 +1,49 @@
 # Bonus
+### Recherchieren Sie, welche Probleme bereits mittels Computer- bzw. Robotereinsatz gelöst werden können und welche aktuell noch ungelöst sind.
+#### Gelöst
+- Geplante Produktionslinien (Wiederkehrende Bedingungen, strukturiertes statisches Umfeld)
+- Sensorik: Oberflachenanalyse, Sortierung, Farberkennung
+- Assistenzsysteme im straßenverkehr: Spurhalte-, Limiter-, Lenkassistenten
+- Sprachverarbeitung: Speech to Text, Text to Speech, auch im Sinne der Vervollständigung (LLMs)
+- Prozessoptimierung durch ML-Modelle
+#### Ungelöst
+- adaptive Roboter für unstrukturierte Dynamische Umgebungen (Ziel: i.d.r Humanoid)
+- LLM Halluzinationen (Das Datenproblem)
+  - Trainingsprozesse die primär durch Compute statt Datensatzgrößen skalierbar sind
+- Fortgesetzte Lernprozesse in ML-Modellen die über Fine-Tuning und In-context learning hinausgehen
+- Menschenähnliches Räumliches verständnis (Objekt) <-- könnte gegen argumentiert werden
+- P-NP
+
+Vor allem in hinblick auf die Lernprozesse in ML-Modellen ist der Daten aufwand enorm,  
+wobei der Mensch ein weniger Daten intensiven Lernprozess zu haben scheint.
+
+### Recherchieren und diskutieren Sie Auswirkungen auf die Gesellschaft durch die KI, etwa durch autonomes Fahren oder durch Large Language Models (LLM).
+Häufig wird im Zusammenhang mit KI von Innovation und effizienten Lösungen gesprochen.
+Dabei müssen jedoch die steigenden Strom- und Datenkosten durch Machine-Learning-Rechenzentren berücksichtigt werden.
+Maschinelles Lernen ist nicht billig. Sei es ein LLM, ein Bild- oder gar ein Videoerzeugungsmodell wie Sora.
+Das Training und der Betrieb dieser Modelle sind teuer und übersteigen in manchen Fällen sogar den Energieverbrauch ganzer Länder.
+Aber das ist es ja alles wert. So zumindest die Hoffnung der Unternehmen, die unzählige Milliarden in die Entwicklung dieser Technologie stecken.
+Vielleicht ja sogar zurecht.
+
+Sollten sie sich hierbei jedoch irren, hätte das enorme Konsequenzen, nicht nur für die Tech-Giganten, sondern auch für den gesamten Aktienmarkt.
+Der Wert des S&P 500 besteht zunehmend und größtenteils aus der Hoffnung auf KI.
+Sollte dieses Vertrauen jemals verschwinden, werden der Markt und mit ihm auch Renten und Rücklagen (z. B. 401(k)-Konten) den Preis dafür zahlen.
+
+Doch sollten die Modelle tatsächlich funktionsfähig, ökonomisch und produktivitätssteigernd sein, stellt sich die Frage, ob Arbeitsplätze künftig immer seltener werden und Arbeitstüchtigkeit bzw. Erwerbsarbeit vielleicht eines Tages der Vergangenheit angehören. (Weit in die Zukunft gedacht.)
+
+Für den Moment sind KI-Modelle, insbesondere LLMs in aller Munde. Sie generieren fröhlich vor sich hin. In einigen Feldern ist dieser Anstieg der
+Produktivtät sicherlich spürbar keine Frage. Jedoch gibt es auch einen Anstieg von sogenanntem Arbeits-Slob.
+Dieser fördert nicht die Produktivität ganz im Gegenteil: Manche Arbeiter sind zunehmend irritiert von Dokumenten,
+die auf den ersten Blick plausibel wirken, bei genauerem Hinsehen jedoch
+
+- Artikel enthalten, die gar nicht verkauft werden,
+- Preise nennen, die nie angeboten wurden, oder
+- Zahlen ausweisen, die das Unternehmen nicht korrekt widerspiegeln.
+
+Das soll kein Schwarzmalen sein, doch dieses Rennen nach immer mehr Innovation im Bereich der KI wirkt übereilt und nicht unbedingt ökonomisch sinnvoll.
+Auch das ständige Rufen nach „AGI“ und der fehlende Plan für einen klaren Return on Investment (ROI) sind bedenklich und wirken ehrlich gesagt fragen auf.
+Dennoch sehe ich Machine Learning und KI-Modelle, zumindest im Konzept, als unglaubliche Chance, die langfristig immer komplexere und variablere Aufgaben lösen kann.
+Nach allem was ich gelesen, gehört und gesehen habe, ist für den Moment, die nahe Zukunft jedoch ungewiss.
 # Search.01: Problemformalisierung, Zustandsraum
 ### 1. Formalisieren Sie das Problem (Zustände, Aktionen, Start- und Endzustand).
 **Zustände:**
@@ -47,7 +92,7 @@
   - (1-O-L) 1 Ork reitet links
   - (1-E-L) 1 Elbe reitet links
 ### 2. Skizzieren Sie den Problemgraph.
-Invalide Zustände sind hier nichtmehr aufgeführt
+Invalide Zustände sind hier nicht mehr aufgeführt
 ```
 Nodes: (Pferd, Orks_links, Elben_links)
 Pferd: 1 = links, 0 = rechts
