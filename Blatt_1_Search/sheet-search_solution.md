@@ -47,13 +47,13 @@
   - (1-O-L) 1 Ork reitet links
   - (1-E-L) 1 Elbe reitet links
 ### 2. Skizzieren Sie den Problemgraph.
-Invalide Zusände sind hier nichtmehr aufgeführt
+Invalide Zustände sind hier nichtmehr aufgeführt
 ```
 Nodes: (Pferd, Orks_links, Elben_links)
 Pferd: 1 = links, 0 = rechts
 ```
 [![](https://mermaid.ink/img/pako:eNp9lVFv2jAUhf9K5KpTKwVk30uAROpetmgvnajaPU28RLOBaCFBwWjtgP--JMTxxUZDCnLy6Zx7j-3ER_arkoolbF1nu03w_Losg-D-PnjTWa2DT8G3KiuCvf4o8nIdtKwdq-BFLDDFYJUXRXK3WsnmF-51Xf1WyZ1E7MejP7nUmwR271TKFzzlvVTKVjxIIQNP2iptU1rt25umvkj5w8PLkwgXzZU-8cfHAQgKBAFIAQ4ArBVcWUEKFAABSIG1QmuFV1ZoFUgU3WS0gDeAE0ULkAKrEFYhrhR9cu4k5yY5d5Jzk5w7yblJzp3k3CTnNHm_PD_qrNznOq9KskbBaPT5JEaL0eupT2uXybD0P9AwQRh2DAgTDqMF0a5yr_ObAa9RQRg49cBjJIRtBoZGbzWDXkGf2YJg95fjaRtFLwQQhp4OHUZC0ILomeJlyfs32dg-n_qZdFhne4Fmbq7gwKwQPVN0GNWhfS8cHQ6ewqsHN5jfp9mIQBg6jAQ088bJLrXNoMPEjYB2l_qe4IWwAa92olvQwvRGQfRMkYXNgZBLluj6oEK2VfU2a2_ZsfscM71RW7VkSTOUapUdCr1ky_LcyHZZ-bOqtkZZV4f1hiWrrNg3d4edbL7gX_OsOW22w9NalVLVX6pDqVkyj6dx58KSI3tnCcBsLOZxhPM4nqOAeBKyj_ZxNI5nE4Q4av4jnE3PIfvbFebjGKJoPoFoOp3EXMwgZErmuqq_X4667sQ7_wN7UM4r?type=png)](https://mermaid.live/edit#pako:eNp9lVFv2jAUhf9K5KpTKwVk30uAROpetmgvnajaPU28RLOBaCFBwWjtgP--JMTxxUZDCnLy6Zx7j-3ER_arkoolbF1nu03w_Losg-D-PnjTWa2DT8G3KiuCvf4o8nIdtKwdq-BFLDDFYJUXRXK3WsnmF-51Xf1WyZ1E7MejP7nUmwR271TKFzzlvVTKVjxIIQNP2iptU1rt25umvkj5w8PLkwgXzZU-8cfHAQgKBAFIAQ4ArBVcWUEKFAABSIG1QmuFV1ZoFUgU3WS0gDeAE0ULkAKrEFYhrhR9cu4k5yY5d5Jzk5w7yblJzp3k3CTnNHm_PD_qrNznOq9KskbBaPT5JEaL0eupT2uXybD0P9AwQRh2DAgTDqMF0a5yr_ObAa9RQRg49cBjJIRtBoZGbzWDXkGf2YJg95fjaRtFLwQQhp4OHUZC0ILomeJlyfs32dg-n_qZdFhne4Fmbq7gwKwQPVN0GNWhfS8cHQ6ewqsHN5jfp9mIQBg6jAQ088bJLrXNoMPEjYB2l_qe4IWwAa92olvQwvRGQfRMkYXNgZBLluj6oEK2VfU2a2_ZsfscM71RW7VkSTOUapUdCr1ky_LcyHZZ-bOqtkZZV4f1hiWrrNg3d4edbL7gX_OsOW22w9NalVLVX6pDqVkyj6dx58KSI3tnCcBsLOZxhPM4nqOAeBKyj_ZxNI5nE4Q4av4jnE3PIfvbFebjGKJoPoFoOp3EXMwgZErmuqq_X4667sQ7_wN7UM4r)
-# Search.02: Suchverfahren (Wüzburg zu München)
+# Search.02: Suchverfahren (Würzburg zu München)
 ## 1. Tiefensuche
 ```
 Stack [(Wü)];                                   Begegnete Elemente []
@@ -77,7 +77,7 @@ Queue [WüFrMaKa, WüFrKaMü, WüNüSt, (WüNüMü)];   Begegnete Elemente [Wü,
 Ziel erreicht über Wü-Nü-Mü (Optimale Lösung)
 ```
 ### Ist h(n) zulässig für A*?
-1.  h(n) <= h*(n). Soll heißen h(n) muss eine Unterschäzung oder Gleichsetzung der Optimallösung sein.
+1.  h(n) <= h*(n). Soll heißen h(n) muss eine Unterschätzung oder Gleichsetzung der Optimallösung sein.
 2. h(n) >= 0 für jeden Knoten
 3. h(n) = 0 für jeden Zielknoten
 
@@ -87,24 +87,24 @@ Dies gilt zu überprüfen:
 
  h*(n) errechnet durch die Wegkosten
 
-|            | Restwegschätzung | Restwegkosten |           Bedingung erfüllt           |
-|:----------:|:----------------:|:-------------:|:-------------------------------------:|
-|  Ausburg   |        0         |      84       |                  Ja                   |
-|   Erfurt   |       400        |      456      |                  Ja                   |
-| Frankfuhrt |       100        |      487      |                  Ja                   |
-| Karlsruhe  |        10        |      334      |                  Ja                   |
-|   Kassel   |       460        |      502      |                  Ja                   |
-|  Mannheim  |       200        |      414      |                  Ja                   |
-|  München   |        0         |       0       |                  Ja                   |
-|  Nünberg   |       537        |      167      | <span style="color: red;">Nein</span> |
-| Stuttgart  |       300        |      350      |                  Ja                   |
-|  Würburg   |       170        |      270      |                  Ja                   |
+|           | Restwegschätzung | Restwegkosten |           Bedingung erfüllt           |
+|:---------:|:----------------:|:-------------:|:-------------------------------------:|
+| Augsburg  |        0         |      84       |                  Ja                   |
+|  Erfurt   |       400        |      456      |                  Ja                   |
+| Frankfurt |       100        |      487      |                  Ja                   |
+| Karlsruhe |        10        |      334      |                  Ja                   |
+|  Kassel   |       460        |      502      |                  Ja                   |
+| Mannheim  |       200        |      414      |                  Ja                   |
+|  München  |        0         |       0       |                  Ja                   |
+| Nürnberg  |       537        |      167      | <span style="color: red;">Nein</span> |
+| Stuttgart |       300        |      350      |                  Ja                   |
+| Würzburg  |       170        |      270      |                  Ja                   |
 
--[x] h(n) >= 0 für jeden Knoten
--[x] h(n) = 0 für jeden Zielknoten (Ausburg könnte eine suboptimale schätzung sein ist, aber dennoch valide)
+-[x] h(n) >= 0 für jeden Knoten  
+-[x] h(n) = 0 für jeden Zielknoten (Augsburg könnte eine suboptimale schätzung sein ist, aber dennoch valide)
 
-Die Nünberg wegschätzung muss also angepasst werden (Vorschlag: 150) und
-damit ist der h(n) Datensatz Zulässig was für die A* Tree-Search variante ausreichend ist
+Die Nürnberg wegschätzung muss also angepasst werden (Vorschlag: 150) und
+damit ist der h(n) Datensatz zulässig was für die A* Tree-Search variante ausreichend ist
 ## 3. A*
 ```
 Queue [Wü(0+170)];                                                      Begegnete Elemente []
@@ -114,22 +114,31 @@ Queue [WüEr(186+400), WüNüSt(286+300), WüFr(217+100), WüNüMü(270+0)];   B
 Ziel erreicht über Wü-Nü-Mü (Optimale Lösung)
 ```
 
-|              | Durchläufe | Datenstruktur größe | Begeneten Elementen | Variante     | Optimale Lösung |
-|:------------:|:----------:|:-------------------:|:-------------------:|--------------|:---------------:|
-| Tiefensuche  |     5      |      Stack: 3       |          4          | Graph-Search |      Nein       |
-| Breitensuche |     7      |      Queue: 4       |          6          | Graph-Search |       Ja        |
-|      A*      |     3      |      Queue: 4       |          2          | Tree-Search  |       Ja        |
+|              | Durchläufe | Datenstruktur größe | Begegneten Elementen | Variante     | Optimale Lösung |
+|:------------:|:----------:|:-------------------:|:--------------------:|--------------|:---------------:|
+| Tiefensuche  |     5      |      Stack: 3       |          4           | Graph-Search |      Nein       |
+| Breitensuche |     7      |      Queue: 4       |          6           | Graph-Search |       Ja        |
+|      A*      |     3      |      Queue: 4       |          2           | Tree-Search  |       Ja        |
 # Search.03: Dominanz
 ### 1. Was bedeutet *“Eine Heuristik $`h_1(n)`$ dominiert eine Heuristik $`h_2(n)`$”*? 
-Eine Heuristik dominiert eine andere Heuristik, wenn sie für alle Nodes n einen Größeren oder gleichgroßen Schätzwert angibt.  
-Desweiteren dürfen $`h_1(n)`$ und $`h_2(n)`$ nicht identisch sein.
+Eine Heuristik dominiert eine andere Heuristik, wenn sie für alle Nodes n einen Größeren oder gleich großen Schätzwert angibt.  
+Des Weiteren dürfen $`h_1(n)`$ und $`h_2(n)`$ nicht identisch sein.
 ### 2. Wie wirkt sich die Nutzung einer dominierenden Heuristik $`h_1(n)`$ in A\* aus (im Vergleich zur Nutzung einer Heuristik $`h_2`$, die von $`h_1`$ dominiert wird)?
-Eine Heuristik die näher an der Optimal Lösung $`h^*(n)`$ liegt, während sie immernoch zulässig ist, wird ihre weiter entfernten Heuristiken domminieren.  
-Das heißt sie wird zumindest eine gleich gute Lösung, wenn nicht sogar ein bessere liefern.
+Eine Heuristik die näher an der optimalen Lösung $`h^*(n)`$ liegt, während sie immer noch zulässig ist, wird ihre weiter entfernten Heuristiken dominieren.  
+Das heißt, sie wird zumindest eine gleich gute Lösung, wenn nicht sogar ein besseres Liefern.
 ### 3. Geben Sie selbstgewählte Beispiele an.
 Zwischen Städten reisen; Annahme $`h_1(n)`$, $`h_2(n)`$ sind zulässig  
 $`h_1(n)`$: Luftlinie zwischen zwei Standorten  
-$`h_2(n)`$: Pessimistische wegschätzung
+$`h_2(n)`$: pessimistische wegschätzung
 
-Es wird hier also $`h_2(n)`$ eine Bessere Lösung als $`h_1(n)`$ liefern
+Es wird hier also $`h_2(n)`$ eine bessere Lösung als $`h_1(n)`$ liefern
 # Search.04: Beweis der Optimalität von A*
+Wenn $h$ zulässig ist und $`C^*`$ die optimale Lösung ist, so muss $`h`$ eine Lösung liefern die $`C^*`$ entspricht.
+
+Nehmen wir an das $`A^*`$ eine suboptimale Lösung $`C`$ findet. Hierfür müssten zwei Bedingungen erfüllt sein.
+1. Dieser suboptimale Weg $`C`$ muss > $`C^*`$ sein (Alias suboptimal)
+2. Der Weg $`C`$ muss vor $`C^*`$ entdeckt werden (Sonst endet ja der Algorithmus)
+
+Dies ist widersprüchlich da $A^*$ Knoten nach $`min(f(n)=g(n)+h(n))`$ expandiert. Es ist also nicht möglich das $`C`$ zuerst expandiert wird,  
+da $`C`$ hierfür eine geringere $`f(n)`$ besitzen müsste.  
+Also wird bei zulässiger Heuristik immer $`C^*`$ vor $`C`$ untersucht.
