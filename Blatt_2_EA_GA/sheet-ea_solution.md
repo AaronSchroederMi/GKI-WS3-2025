@@ -15,7 +15,7 @@ Geben Sie einen Bericht darüber ab, was Sie versucht haben, wie
 leicht/schwer es war und eine vollständige Historie des “Gesprächs”.
 (Grenze: nicht länger als 30 Minuten, nicht mehr als 5 Seiten)
 
-> ![Chat Log](\Blatt_2_EA_GA\TabuGPT.png "Chat Log")
+> ![Chat Log](TabuGPT.png "Chat Log")
 
 *Thema*: Interaktion mit Chatbots
 
