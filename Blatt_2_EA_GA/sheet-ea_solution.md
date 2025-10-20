@@ -31,8 +31,64 @@ Individuen, passende Operatoren (**Crossover**, **Mutation**) und eine
 geeignete **Fitnessfunktion** an, damit die Probleme mit einem GA gelöst
 werden können. Begründen Sie Ihre Wahl!
 
+> ### Färbeprobleme:
+> 
+> 
+> 
+> **Kodierung der Individuen:** Array `int[Country.length]` (Zahlen repräsentieren die Farben)  
+> Einfache direkte Implementierung (Farben sind einfach anzupassen)
+> 
+> **Crossover:** (A:50% links, B:50% rechts) ⇽ zu einer gewissen wahrscheinlichkeit (0,6)  
+> Kombiniert zwei Farbregionen
+> 
+> 
+> **Mutation:** ein Wert das Individuum ändert sich ⇽ zu einer gewissen wahrscheinlichkeit (0,001)   
+> Kann Konflikte lösen 
+> 
+> **Fitnessfunktion:** Die Menge an verwendeten Farben und Konflikten also `f() = -(uniqueColorCount + conflicts)`
+
+> ### 8-Queens-Problem:
+>
+> **Kodierung der Individuen:** Array `int[8]` (Zahlen repräsentieren Spalten, Index repräsentiert Zeile)  
+> simple kodierung und es kann keine Zeilen konflikte geben (Spalten einfach zu prüfen)
+> 
+> **Crossover:** OX  
+> OX sorgt für keine doppelten Spalten
+> 
+> **Mutation:** Tausche zwei zufällige  
+> keine doppelten Spalten oder Zeilen
+> 
+> **Fitnessfunktion:** Menge an Konflikten also `f() = -conflictCount`
+
 Was würden Sie noch benötigen, um die obigen Probleme jeweils mit
 Simulated Annealing lösen zu können?
+
+> ### Färbeprobleme:
+> 
+> **Node:** identisch zur kodierung der Individuen
+> 
+> **Nachbarschaffunktion:** ändere die Farbe einer zufälligen Region zu einer gültigen Farbe
+> 
+> **Fitnessfunktion:** uniqueColorCount + conflicts
+> 
+> **Passendes Scheduling (Temperatur):** 
+> - hohe Temperatur langsam abkühlen lassen
+> - Stufen 10 Änderungen halten
+> - Bei keiner Verbesserung nach drei wiederholungen ⇾ Stop
+
+
+> ### 8-Queens-Problem:
+>
+> **Node:** identisch zur kodierung der Individuen
+>
+> **Nachbarschaffunktion:** Tausche zwei Werte miteinander
+>
+> **Fitnessfunktion:** conflictCount
+>
+> **Passendes Scheduling (Temperatur):**
+> - hohe Temperatur langsam abkühlen lassen
+> - Stufen 10 Änderungen halten
+> - Bei keiner Verbesserung nach drei wiederholungen ⇾ Stop
 
 *Thema*: Modellierung für GA und Gradientensuche
 
