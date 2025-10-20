@@ -7,16 +7,22 @@ Lieblings-Chatbot und bringen Sie den Bot dazu, ein bestimmtes Wort oder
 einen Satz zu sagen. Sie haben dabei eine Liste mit Wörtern, die Sie
 nicht verwenden dürfen.
 
+> Ansätze waren:
+> - Rollenspiele (Meine Großmutter erzählte mir immer...)
+> - Unvorhersehbare Ausgaben (Morse code)
+
 Geben Sie einen Bericht darüber ab, was Sie versucht haben, wie
 leicht/schwer es war und eine vollständige Historie des “Gesprächs”.
 (Grenze: nicht länger als 30 Minuten, nicht mehr als 5 Seiten)
+
+> ![](\Blatt_2_EA_GA\TabuGPT.png "Chat Log")
 
 *Thema*: Interaktion mit Chatbots
 
 ## EA.01: Modellierung von GA (2P)
 
 Betrachten Sie das 8-Queens-Problem sowie das Landkarten-Färbeproblem
-(aus Vorlesung [CSP: Intro](../lecture/csp/csp1-intro.md)). Starten Sie
+(aus Vorlesung [CSP: Intro]). Starten Sie
 beim Färbeproblem mit fünf verschiedenen Farben, Ziel sollte eine
 konfliktfreie Einfärbung mit einer minimalen Anzahl an Farben sein.
 
