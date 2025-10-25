@@ -97,6 +97,22 @@ Simulated Annealing lösen zu können?
 > Anmerkung: `search.genetic_algorithm()` musste angepasst werden für AVE  
 > Code: [`GA.py`](GA.py)
 
+Implementieren Sie den in der Vorlesung besprochenen GA und wenden Sie
+den Algorithmus nacheinander auf beide Probleme an. Sie können gern auch
+die Java-Klassen im Paket
+[`aima.core.search.local`](https://github.com/aimacode/aima-java/tree/AIMA3e/aima-core/src/main/java/aima/core/search/local)
+bzw. die Python-Klassen in
+[`search.py`](https://github.com/aimacode/aima-python/blob/master/search.py)
+als Ausgangspunkt nutzen.
+
+Untersuchen Sie **systematisch** unterschiedliche
+Varianten/Einstellungen der in der VL vorgestellten Operatoren. Führen
+Sie pro Einstellung jeweils mind. 100 Läufe durch und messen Sie die
+besprochenen Kennzahlen.
+
+Erstellen Sie eine geeignete (systematische!) Auswertung Ihrer
+Experimente.
+
 ### 5-Länderproblem
 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -138,23 +154,6 @@ Simulated Annealing lösen zu können?
 | 1 | 10 | 0.1 | 250 | 23.8 | 0.0 | 250.0 | 0.3186686682701111 | 2.05984375 |
 | 3 | 10 | 0.5 | 250 | 23.79 | 0.03 | 101.66666666666667 | 0.317548303604126 | 2.05421875 |
 | 2 | 10 | 0.2 | 250 | 24.04 | 0.02 | 156.0 | 0.3169363737106323 | 2.05609375 |
-
-
-Implementieren Sie den in der Vorlesung besprochenen GA und wenden Sie
-den Algorithmus nacheinander auf beide Probleme an. Sie können gern auch
-die Java-Klassen im Paket
-[`aima.core.search.local`](https://github.com/aimacode/aima-java/tree/AIMA3e/aima-core/src/main/java/aima/core/search/local)
-bzw. die Python-Klassen in
-[`search.py`](https://github.com/aimacode/aima-python/blob/master/search.py)
-als Ausgangspunkt nutzen.
-
-Untersuchen Sie **systematisch** unterschiedliche
-Varianten/Einstellungen der in der VL vorgestellten Operatoren. Führen
-Sie pro Einstellung jeweils mind. 100 Läufe durch und messen Sie die
-besprochenen Kennzahlen.
-
-Erstellen Sie eine geeignete (systematische!) Auswertung Ihrer
-Experimente.
 
 ## EA.03: Anwendungen (3P)
 
