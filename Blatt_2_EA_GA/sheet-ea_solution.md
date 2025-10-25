@@ -171,8 +171,39 @@ Experimente.
 Welche Fitnessfunktion wurden in den drei Beispielen jeweils genutzt,
 wie die Individuen und die Operatoren codiert?
 
+> ### Waldo:
+> - **Fitness:** länge des Weges den das Individuum genommen hat, um Waldo zu finden (wird minimiert)  
+> - **Mutation:** zwei Orte im Wege werden getauscht order nimmt einen zufälligen Teil des Wegs und bewegt ihn an eine andere Stelle des Wegs  
+> - **Recombination:** erzeuge eine Copy von den Besten Paths (10%); 4 Kinder swap mutieren 1-3 mal; 5 Kinder shuffle mutieren
+> Kinder ersetzten Eltern
+> ### Evolution:
+> - **Fitness:** Distance vom Centrum  
+> - **Mutation:**  addRandomNode(), addRandomMuscle(), removeRandomNode(), removeRandomMuscle() 4% jeweils
+> - **Recombination:** kill 500 (low fitness bias) -> copy with mutations
+> ### fuzzy lop: 
+> 1. Load user-supplied initial test cases into the queue,
+> 2. Take next input file from the queue,
+> 3. Attempt to trim the test case to the smallest size that doesn't alter the measured behavior of the program, 
+> 4. Repeatedly mutate the file using a balanced and well-researched variety of traditional fuzzing strategies, 
+> 5. If any of the generated mutations resulted in a new state transition recorded by the instrumentation, add mutated output as a new entry in the queue. 
+> 6. Go to 2.[^1]
+> 
+> **Mutation:**
+> - Sequential bit flips with varying lengths and stepovers,
+> - Sequential addition and subtraction of small integers,
+> - Sequential insertion of known interesting integers (0, 1, INT_MAX, etc),
+
 Recherchieren Sie, in welchen *anderen* Anwendungen Evolutionäre
 Algorithmen eingesetzt werden. Erklären Sie kurz, wie und wofür die
 EA/GA jeweils genutzt werden.
 
+> Finanzen:
+> optimierung von Portfolios oder Handelsstrategien
+> 
+> Robotik: Bewegungsabläufe (vergleichbar zu Evolution)
+> 
+> Medizin: Strukturanalyse von proteinen zur Forschung von neuen Medikamenten
+
 *Thema*: Analyse von GA-Implementierungen
+
+[^1]:https://lcamtuf.coredump.cx/afl/README.txt
