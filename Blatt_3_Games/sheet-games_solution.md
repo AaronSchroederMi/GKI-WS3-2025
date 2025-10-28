@@ -19,16 +19,47 @@ Informatik.
 ![alphabeta](alphabeta.png)
 
 1.  (1P) Geben Sie für den Spielbaum die Minimax-Bewertungen an.
-
+> - A: 3
+>   - B: 3
+>   - C: 2
+>     - E: 9
+>     - F: 2
+>     - G: 6
+>   - D: 1
 2.  (1P) Markieren Sie die Kanten, die bei alpha-beta-Pruning nicht mehr
     untersucht werden würden, d.h. wo Pruning stattfinden würde. Geben
     Sie für jeden Knoten die (sich ändernden) $`\alpha`$- und
     $`\beta`$-Werte an.
+> ### Paths to prune
+> - ACG (Grund: A = 3, C = 2) → C bleibt gleich $`[\alpha=3,\;\beta=2]`$
+> - AD1 (Grund: A = 3, D = 2) → D wird zu 2 statt 1 $`[\alpha=3,\;\beta=2]`$
+> - AD3 (Grund: A = 3, D = 2) → D wird zu 2 statt 1 $`[\alpha=3,\;\beta=2]`$
+> 
+>
+| Min / Max | Node | v | $`\alpha`$  | $`\beta`$  | difference  | Pruned |
+|-----------|------|---|-------------|------------|-------------|--------|
+| Min       | AB   | 3 | $`-\infty`$ | 3          | -$`\infty`$ | Nein   |
+| Max       | A    | 3 | 3           | $`\infty`$ | -$`\infty`$ | Nein   |
+| Max       | ACE  | 9 | 9           | $`\infty`$ | -$`\infty`$ | Nein   |
+| Min       | AC   | 9 | 3           | 9          | -6          | Nein   |
+| Max       | ACF  | 2 | 3           | 9          | -6          | Nein   |
+| Min       | AC   | 2 | 3           | 2          | 1           | Nein   |
+| Max       | ACG  |   |             |            |             | Ja     |
+| Min       | AC   | 2 | 3           | 2          | 1           | Nein   |
+| Max       | A    | 3 | 3           | $`\infty`$ | -$`\infty`$ | Nein   |
+| Min       | AD   | 2 | 3           | 2          | 1           | Nein   |
+| Max       | A    | 3 | 3           | $`\infty`$ | -$`\infty`$ | Nein   |
+
+> AD1 und AD3 nicht dargestellt, aber auch gekürzt
 
 3.  (1P) Können die Knoten derart geordnet werden, dass
     alpha-beta-Pruning eine größere Anzahl von Zweigen abschneidet? Wenn
     ja, geben Sie eine solche Ordnung an. Wenn nein, begründen Sie Ihre
     Antwort.
+
+[![](https://mermaid.ink/img/pako:eNqVlMtu4yAUQH8F3cWsnMiAA5hF1SZpu-quq8obUq4dS35Eri11Jsq_FxPXnoWTtJZA4tzDBczjCO-1RdCQNeawJ6_bpCLue7g_fuzNATVpm_x0Zjv-PwxIYXZYaJIAT-BbkRcUOSnqgqJG5Wlm8McZ9jzDLLuQno3pLb2g0Em5vtSztB6d0lSdKRZpXuCQYHMltr0SS9lccHYZKb2hTstJf-FifEONJ_UXWcUNVYxq9vNfkK1uqKtJ_dkEhtNPFos7siZ_yMaV4UqsPdxxR3ayr9Sw1Z4_OfLoyvOwxx5a5oilfcWHo-152vO0525nhvPtAxg7hn0AxXDGPc-EQ9mqr9h5kkkFgbuzuQXdNh0GUGJTmr4JRx-Hdo8lJtCvzWJquqJNIKlOrtvBVG91XX73bOou24NOTfHhWt3Bmha3uXEPQjnSBiuLzabuqhY0FVHss4A-widooZZSRaFiTIRURhEL4C9oFrIlpSxWXEZcUXoK4J8fNVyqSHLJQ6E4Z0IyGgDavK2bl_NT5F-k0xckq1-5?type=png)](https://mermaid.live/edit#pako:eNqVlMtu4yAUQH8F3cWsnMiAA5hF1SZpu-quq8obUq4dS35Eri11Jsq_FxPXnoWTtJZA4tzDBczjCO-1RdCQNeawJ6_bpCLue7g_fuzNATVpm_x0Zjv-PwxIYXZYaJIAT-BbkRcUOSnqgqJG5Wlm8McZ9jzDLLuQno3pLb2g0Em5vtSztB6d0lSdKRZpXuCQYHMltr0SS9lccHYZKb2hTstJf-FifEONJ_UXWcUNVYxq9vNfkK1uqKtJ_dkEhtNPFos7siZ_yMaV4UqsPdxxR3ayr9Sw1Z4_OfLoyvOwxx5a5oilfcWHo-152vO0525nhvPtAxg7hn0AxXDGPc-EQ9mqr9h5kkkFgbuzuQXdNh0GUGJTmr4JRx-Hdo8lJtCvzWJquqJNIKlOrtvBVG91XX73bOou24NOTfHhWt3Bmha3uXEPQjnSBiuLzabuqhY0FVHss4A-widooZZSRaFiTIRURhEL4C9oFrIlpSxWXEZcUXoK4J8fNVyqSHLJQ6E4Z0IyGgDavK2bl_NT5F-k0xckq1-5)
+
+> E wird hier zusätzlich gepruned
 
 *Hinweis*: Reihenfolge der Abarbeitung der Kindknoten: Wie in der VL von
 links nach rechts.
@@ -93,11 +124,3 @@ Vervollständigen Sie den Spielbaum, indem Sie alle inneren Knoten und
 den Wurzelknoten mit den entsprechenden Wert-Tripeln annotieren.
 
 *Thema*: Minimax generalisiert für mehrere Spieler
-
-------------------------------------------------------------------------
-
-<img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" width="10%">
-
-Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
-
-<blockquote><p><sup><sub><strong>Last modified:</strong> 12d767c (homework: spread the discussion tasks across the first four exercise sheets, 2025-09-15)<br></sub></sup></p></blockquote>
