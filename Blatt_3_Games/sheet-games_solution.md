@@ -87,9 +87,23 @@ die Eigenschaft *Nullsummenspiel* berücksichtigen und die Funktionen
 `Min-Value` und `Max-Value` in eine einzige Funktion ohne explizite
 Unterscheidung der Spieler zusammenfassen.
 
+> ```Python
+> def minimax(state):
+>   if Terminal-Test(state): return Utility(state, player)
+>   
+>   best_v = -inf
+>   for move in moves(state, player):
+>       v = -minimax(result(state, move), opponent(player))
+>       best_v = max(best_v, v)
+>
+> return best_v 
+> ```
+
 Überlegen Sie sich einen Beispielbaum und zeigen Sie anhand dessen die
 Bewertung durch den Minimax-Algorithmus und durch Ihren vereinfachten
 Algorithmus.
+
+> Die Bewertung und getroffenen Entscheidungen sind identisch zum normalen Minimax
 
 *Thema*: Nullsummenspiel, Minimax
 
