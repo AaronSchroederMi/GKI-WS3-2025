@@ -76,6 +76,8 @@ links nach rechts.
 3.  (1P) Vergleichen Sie die Anzahl der jeweils berechneten Knoten.
     Überlegen Sie sich dazu ein **sinnvolles** Szenario.
 
+> Siehe [MinMax.ipynb](MinMax.ipynb)
+
 *Thema*: Anwendung Minimax und alpha-beta-Pruning
 
 ## Games.03: Minimax vereinfachen (1P)
