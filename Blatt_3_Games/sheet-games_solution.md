@@ -120,6 +120,49 @@ Geben Sie die Werte der Evaluierungsfunktion für sechs verschiedene
 Spielzustände an (3 Endzustände, 3 Zwischenzustände). Begründen Sie,
 warum diese Evaluierungsfunktion im Zusammenhang mit *Tic-Tac-Toe*
 sinnvoll sein kann.
+> ${Eval}(s) = 3X_2(s) + X_1(s) - (3O_2(s) + O_1(s))$
+> ```
+>  X | O |
+> ---+---+---
+>  X | O | X    Eval(s) = 3 * 0 + 0 - (3 * 0 + 0) = 0
+> ---+---+---
+>  O | X | O 
+> 
+>  X | X |
+> ---+---+---
+>  X | O | O    Eval(s) = 3 * 1 + 0 - (3 * 2 + 0) = -3 <-- ! result depends on who started
+> ---+---+---
+>  O | X | O 
+> 
+>  X | X | O
+> ---+---+---
+>  O |   | X    Eval(s) = 3 * 0 + 0 - (3 * 0 + 0) = 0
+> ---+---+---
+>  X | O | O 
+> 
+>  O | X |
+> ---+---+---
+>    | O |      Eval(s) = 3 * 1 + 1 - (3 * 0 + 2) = 1
+> ---+---+---
+>    | X | X 
+> 
+>  X | X |
+> ---+---+---
+>  X |   |      Eval(s) = 3 * 1 + 2 - (3 * 1 + 2) = 0 <-- ! result depends on who started
+> ---+---+---
+>  O |   | O 
+> 
+>    | X |
+> ---+---+---
+>  X | O | O    Eval(s) = 3 * 0 + 1 - (3 * 1 + 2) = -4
+> ---+---+---
+>  O | X | 
+> ```
+> 
+> Die Funktion nutzt ein gewisses Spiel verständnis und ermittelt daran eine Annahme, welche positions muster Vorteilhaft sind
+> es berücksichtigt hierbei interessanter, weise nicht welcher Spieler momentan am Zug ist.  
+> - 2 Symbole in einer Reihe ohne gegen Symbole sind eine sehr gute Position und werden höher geschätzt als z.B. 2 Reihen mit jeweils einem konkurrenzlosen Symbol.
+> - Wird für beide Spieler ermittelt und gegeneinander abgewogen
 
 *Thema*: Suchtiefenbegrenzung und Evaluierungsfunktion
 
