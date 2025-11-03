@@ -88,7 +88,7 @@ die Eigenschaft *Nullsummenspiel* berücksichtigen und die Funktionen
 Unterscheidung der Spieler zusammenfassen.
 
 > ```Python
-> def minimax(state):
+> def minimax(state, player):
 >   if Terminal-Test(state): return Utility(state, player)
 >   
 >   best_v = -inf
