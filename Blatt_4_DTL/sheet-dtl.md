@@ -185,9 +185,27 @@ als Ausgangspunkt nutzen.
 
 Vereinfachen Sie schrittweise den Baum
 
-``` math
+$$
 x_3(x_2(x_1(C,A), x_1(B,A)), x_1(x_2(C,B), A))
-```
+$$
+
+> Allgemeine Transformationsregel
+> 
+> 1. $`x_3(x_2(x_1(C,A), x_1(B,A)), x_1(x_2(C,B), A))`$ --> $`x_3(x_1(x_2(C,B), x_2(A,A)), x_1(x_2(C,B), A))`$
+> 
+> $`x_2(A,A)`$ ist ein redundanter Test
+> 
+> 2. $`x_3(x_1(x_2(C,B), x_2(A,A)), x_1(x_2(C,B), A))`$ --> $`x_3(x_1(x_2(C,B), A), x_1(x_2(C,B), A))`$
+> 
+> Allgemeine Transformationsregel
+> 
+> 3. $`x_3(x_1(x_2(C,B), A), x_1(x_2(C,B), A))`$ --> $`x_1(x_3(x_2(C,B), x_2(C,B)), x_3(A, A))`$
+> 
+> $`x_3(A,A)`$ ist ein redundanter Test
+> $`x_3(x_2(C,B), x_2(C,B))`$ ist ein redundanter Test
+> 
+> 4. $`x_1(x_3(x_2(C,B), x_2(C,B)), x_3(A, A))`$ --> $`x_1(x_2(C,B), A)`$
+> 
 
 so weit wie möglich.
 
