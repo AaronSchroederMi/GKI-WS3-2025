@@ -226,7 +226,7 @@ beiliegenden Dokumentation vertraut.
 Laden Sie sich die Beispieldatensätze “Zoo” (`zoo.csv`) und “Restaurant”
 (`restaurant.csv`) aus dem AIMA-Repository
 ([github.com/aimacode/aima-data](https://github.com/aimacode/aima-data))
-herunter.[^2] Zum Laden der Beispieldatensätze in Weka müssen die
+herunter. Zum Laden der Beispieldatensätze in Weka müssen die
 `.csv`-Dateien eine Kopfzeile mit den Namen der Attribute haben. Passen
 Sie die Dateien entsprechend an und laden Sie diese im Reiter
 “Pre-Process” mit “Open file …”.
@@ -249,6 +249,38 @@ nachinstallieren.
     Trainingssatz? (Stellen Sie unter “Test options” den Haken auf “Use
     training set”.) Interpretieren Sie die **Confusion Matrix**.
 
+> ### restaurant.csv
+> Fehlerrate: 16.6667%  
+> Confusion Matrix:
+> 
+> ```
+> a b   <-- classified as
+> 4 2 | a = Yes
+> 0 6 | b = No
+> ```
+>
+> Auf der Diagonal liegende Werte wurden richtig klassifiziert (Zeile 1 enthält 2 Fehler)
+> 
+> <img src='images/restaurant.png' alt='zoo' width='600'/>
+
+> ### zoo.csv
+> Fehlerrate: 0.9901 %  
+> Confusion Matrix:
+> ```
+>  a  b  c  d  e  f  g   <-- classified as
+> 41  0  0  0  0  0  0 |  a = mammal
+>  0 13  0  0  0  0  0 |  b = fish
+>  0  0 20  0  0  0  0 |  c = bird
+>  0  0  0 10  0  0  0 |  d = shellfish
+>  0  0  0  0  8  0  0 |  e = insect
+>  0  0  0  0  0  3  1 |  f = amphibian
+>  0  0  0  0  0  0  5 |  g = reptile
+> ```
+> 
+> Ein Fehler (Zeile 6 enhält 1 Fehler)
+> 
+> <img src='images/zoo.png' alt='zoo' width='600'/>
+
 2.  ARFF-Format (1P)
 
     Lesen Sie in der beiliegenden Doku zum Thema “ARFF” nach. Dabei
@@ -260,9 +292,15 @@ nachinstallieren.
     Erklären Sie die Unterschiede zwischen “nominal”, “ordinal” (bzw.
     “numeric”) und “string”.
 
-    Konvertieren Sie den Zoo- und Restaurantdatensatz in das
-    ARFF-Format. Beachten Sie, dass die ID3-Implementierung von Weka
-    nicht mit bestimmten Attributtypen umgehen kann.
+> 1. nominal: reale Zahlen oder Integer Zahlen
+> 2. ordinal/numeric: Liste von möglichen Werten
+> 3. string: arbitrary Text input 
+
+  Konvertieren Sie den Zoo- und Restaurantdatensatz in das
+  ARFF-Format. Beachten Sie, dass die ID3-Implementierung von Weka
+  nicht mit bestimmten Attributtypen umgehen kann.
+
+> Files: [zoo.arff](zoo.arff),  [restaurant.arff](restaurant.arff)
 
 3.  Training mit ID3 und J48 (1P)
 
@@ -273,5 +311,35 @@ nachinstallieren.
     Vergleichen Sie wieder die Ergebnisse (Entscheidungsbäume,
     Fehlerraten, Confusion Matrix) untereinander und mit den Ergebnissen
     aus dem J48-Lauf mit den `.csv`-Dateien.
+
+> ### Restaurant (J48)
+> All identical to 2.
+
+> ### Restaurant (ID3)
+> Fehlerrate: 0%  
+> Confusion Matrix:
+>
+> ```
+> a b   <-- classified as
+> 6 0 | a = Yes
+> 0 6 | b = No
+> ```
+> 
+> ```
+> Patrons = Some: Yes
+> Patrons = Full
+> |  Type = French: No
+> |  Type = Thai
+> |  |  Fri/Sat = Yes: Yes
+> |  |  Fri/Sat = No: No
+> |  Type = Burger
+> |  |  Alternate = Yes: Yes
+> |  |  Alternate = No: No
+> |  Type = Italian: No
+> Patrons = None: No
+> ```
+
+> ### Zoo (J48)
+> All identical to 2.
 
 *Thema*: Kennenlernen von Weka
