@@ -43,169 +43,15 @@ implementieren. Sie können gern auch die Java-Klassen im Paket
 [`aima.core.learning`](https://github.com/aimacode/aima-java/blob/AIMA3e/aima-core/src/main/java/aima/core/learning/learners/DecisionTreeLearner.java)
 bzw. die Python-Klassen in
 [`learning.py`](https://github.com/aimacode/aima-python/blob/master/learning.py)
-als Ausgangspunkt nutzen.
-
-> ### CAL3
-> Alter = $`x_1`$ ; Einkommen = $`x_3`$ ; Bildung = $`x_3`$  
-> $`x_1`$: Ausprägung 2  
-> $`x_2`$: Ausprägung 2  
-> $`x_3`$: Ausprägung 3
-> 0. $`*`$
-> ---
-> 1. $`/01/`$
-> 2. $`/02/`$
-> 3. $`/02,M1/`$
-> 4. $`/02,M2/`$ --> $`x_1(/M1/, *)`$
-> 5. $`x_1(/O1,M1/, *)`$
-> 6. $`x_1(/O1,M1/,/O1/)`$
-> 7. $`x_1(/O1,M1/, /O1,M1/)`$
-> ---
-> 1. $`x_1(/O2,M1/, /O1,M1/)`$
-> 2. $`x_1(/O2,M1/, /O2,M1/)`$
-> 3. $`x_1(/O2,M2/, /O2,M1/)`$ --> $`x_1(x_2(/M1/, *), /O2,M1/)`$
-> 4. $`x_1(x_2(/M1/, /M1/), /O2,M1/)`$
-> 5. $`x_1(x_2(/O1,M1/, /M1/), /O2,M1/)`$
-> 6. $`x_1(x_2(/O1,M1/, /M1/), /O3,M1/)`$ --> $`x_1(x_2(/O1,M1/, /M1/), O)`$
-> 7. $`x_1(x_2(/O1,M1/, /M1/), O)`$ (**Fehler**)
-> ---
-> 1. $`x_1(x_2(/O2,M1/, /M1/), O)`$
-> 2. $`x_1(x_2(/O2,M1/, /M1/), O)`$
-> 3. $`x_1(x_2(/O2,M2/, /M1/), O)`$ --> $`x_1(x_2(x_3(*,*,/M1/), /M1/), O)`$
-> 4. $`x_1(x_2(x_3(*,*,/M1/), /M2/), O)`$
-> 5. $`x_1(x_2(x_3(*,/O1/,/M1/), /M2/), O)`$
-> 6. $`x_1(x_2(x_3(*,/O1/,/M1/), /M2/), O)`$
-> 7. $`x_1(x_2(x_3(*,/O1/,/M1/), /M2/), O)`$ (**Fehler**)
-> ---
-> 1. $`x_1(x_2(x_3(/O1/,/O1/,/M1/), /M2/), O)`$
-> 2. $`x_1(x_2(x_3(/O1/,/O1/,/M1/), /M2/), O)`$
-> 3. $`x_1(x_2(x_3(/O1/,/O1/,/M2/), /M2/), O)`$
-> 4. $`x_1(x_2(x_3(/O1/,/O1/,/M2/), /M3/), O)`$
-> 5. $`x_1(x_2(x_3(/O1/,/O2/,/M2/), /M3/), O)`$
-> 6. $`x_1(x_2(x_3(/O1/,/O2/,/M2/), /M3/), O)`$
-> 7. $`x_1(x_2(x_3(/O1/,/O2/,/M2/), /M3/), O)`$ (**Fehler**)
-> ---
-> 1. $`x_1(x_2(x_3(/O2/,/O2/,/M2/), /M3/), O)`$
-> 2. $`x_1(x_2(x_3(/O2/,/O2/,/M2/), /M3/), O)`$
-> 3. $`x_1(x_2(x_3(/O2/,/O2/,/M3/), /M3/), O)`$
-> 4. $`x_1(x_2(x_3(/O2/,/O2/,/M2/), /M4/), O)`$ --> $`x_1(x_2(x_3(/O2/,/O2/,/M2/), M), O)`$
-> 5. $`x_1(x_2(x_3(/O2/,/O3/,/M2/), M), O)`$
-> 6. $`x_1(x_2(x_3(/O2/,/O3/,/M2/), M), O)`$
-> 7. $`x_1(x_2(x_3(/O2/,/O3/,/M2/), M), O)`$ (**Fehler**)
-> ---
-> 1. $`x_1(x_2(x_3(/O3/,/O3/,/M2/), M), O)`$
-> 2. $`x_1(x_2(x_3(/O3/,/O3/,/M2/), M), O)`$
-> 3. $`x_1(x_2(x_3(/O3/,/O3/,/M3/), M), O)`$
-> 4. $`x_1(x_2(x_3(/O3/,/O3/,/M3/), M), O)`$
-> 5. $`x_1(x_2(x_3(/O3/,/O4/,/M3/), M), O)`$ --> $`x_1(x_2(x_3(/O3/,O,/M3/), M), O)`$
-> 6. $`x_1(x_2(x_3(/O3/,O,/M3/), M), O)`$
-> 7. $`x_1(x_2(x_3(/O3/,O,/M3/), M), O)`$ (**Fehler**)
-> ---
-> 1. $`x_1(x_2(x_3(/O4/,O,/M3/), M), O)`$ --> $`x_1(x_2(x_3(O,O,/M3/), M), O)`$
-> 2. $`x_1(x_2(x_3(O,O,/M3/), M), O)`$
-> 3. $`x_1(x_2(x_3(O,O,/M4/), M), O)`$ --> $`x_1(x_2(x_3(O,O,M), M), O)`$
-> 
-> Trainingsfehler = 1/7 < 1 - $`S_2`$
-
-> ### ID3
->
-> #### 0 ID3({1,2,3,4,5,6,7}, {$`x_1, x_2, x_3`$}, O)
-> 
-> $`H(S) = -\sum_k p_k \log_2 p_k = -((4/7*log_24/7) + (3/7*log_23/7)) = 0.98522`$ (Bit)  
-> $`R(S, A)\sum_{v \in \mathop{\text{Values}}(A)} \frac{|S_v|}{|S|} H(S_v)`$  
-> 
-> $`R(S, x_1) = 4/7 * (-(2/4*log_22/4+2/4log_22/4)) + 3/7 * (-(2/3*log_22/3+1/3log_21/3)) = 0.96498`$ (Bit)  
-> $`R(S, x_2) = 4/7 * (-(3/4*log_23/4+1/4*log_21/4))+ 3/7 * (-(1/3*log_21/3+2/3*log_22/3)) = 0.85714`$ (Bit)
-> $`R(S, x_3) = 3/7 * (-(1/3*log_21/3 + 2/3*log_22/3)) + 2/7 * (-(2/2*log_22/2))+ 2/7 * (-(1/2*log_21/2+1/2*log_21/2)) = 0.67926`$ (Bit)
-> 
-> $`Gain(S, x_1) = 0.98522 - 0.96498 = 0.02024`$ (Bit)  
-> $`Gain(S, x_2) = 0.98522 - 0.85714 = 0.12808`$ (Bit)  
-> $`Gain(S, x_3) = 0.98522 - 0.67926 = 0.30596`$ (Bit)
-> 
-> $`x_3(*,*,*)`$
-> 
-> #### 3.1 ID3({1,4,7}, {$`x_1,x_2`$}, M)
-> 
-> $`H(S) = -\sum_k p_k \log_2 p_k = -((1/3*log_21/3) + (2/3*log_22/3)) = 0.91829`$ (Bit)
-> 
-> $`R(S, x_1) = 2/3 * (-(1/2*log_21/2+1/2log_21/2)) + 1/3 * (-(1/1log_21/1)) = 0.66666`$ (Bit)   
-> $`R(S, x_2) = 1/3 * (-(1/1*log_21/1))+ 2/3 * (-(1/2*log_21/2+1/2*log_21/2)) = 0.66666`$ (Bit)
-> 
-> $`Gain(S, x_1) = 0.91829 - 0.66666 = 0.25163`$ (Bit)  
-> $`Gain(S, x_2) = 0.91829 - 0.66666 = 0.25163`$ (Bit)
-> 
-> $`x_3(x_1(*,*),*,*)`$
-> 
-> #### 1.1 ID3({1, 4}, {x_2}, OM)
-> 
-> $`x_3(x_1(x_2(*,*),*),*,*)`$
-> 
-> #### 2.1 ID3({1}, {x_2}, O)
-> Alle Beispiele haben dieselbe Klasse (O)
-> 
-> $`x_3(x_1(x_2(O,*),*),*,*)`$
-> 
-> #### 2.1 ID3({4}, {x_2}, M)
-> Alle Beispiele haben dieselbe Klasse (M)
-> 
-> $`x_3(x_1(x_2(O,M),*),*,*)`$
-> 
-> #### 1.2 ID3({7}, {x_2}, M)
-> Alle Beispiele haben dieselbe Klasse (M)
-> 
-> $`x_3(x_1(x_2(O,M),M),*,*)`$
-> 
-> #### 3.2 ID3({2,5}, {$`x_1,x_2`$}, O)
-> Alle Beispiele haben dieselbe Klasse (O)
-> 
-> $`x_3(x_1(x_2(O,M),M),O,*)`$
-> 
-> #### 3.3 ID3({3,6}, {$`x_1,x_2`$}, OM)
-> 
-> $`H(S) = -\sum_k p_k \log_2 p_k = -((1/2*log_21/2) + (1/2*log_21/2)) = 1`$ (Bit)
->
-> $`R(S, x_1) = 1/2 * (-(1/1*log_21/1)) + 1/2 * (-(1/1log_21/1)) = 0`$ (Bit)   
-> $`R(S, x_2) = 2/2 * (-(1/2*log_21/2+1/2log_21/2)) = 1`$ (Bit)
->
-> $`Gain(S, x_1) = 1 - 0 = 1`$ (Bit)  
-> $`Gain(S, x_2) = 1 - 1 = 0`$ (Bit)
-> 
-> $`x_3(x_1(x_2(O,M),M),O,x_1(*,*))`$
-> 
-> #### 1.1 ID3({3}, {x_2}, M)
-> Alle Beispiele haben dieselbe Klasse (M)
-> 
-> $`x_3(x_1(x_2(O,M),M),O,x_1(M,*))`$
-> 
-> #### 1.2 ID3({6}, {x_2}, O)
-> Alle Beispiele haben dieselbe Klasse (O)
-> 
-> $`x_3(x_1(x_2(O,M),M),O,x_1(M,O))`$
+als Ausgangspunkt nutzen.[^1]
 
 ## DTL.02: Pruning (1P)
 
 Vereinfachen Sie schrittweise den Baum
 
-$$
+``` math
 x_3(x_2(x_1(C,A), x_1(B,A)), x_1(x_2(C,B), A))
-$$
-
-> Allgemeine Transformationsregel
-> 
-> 1. $`x_3(x_2(x_1(C,A), x_1(B,A)), x_1(x_2(C,B), A))`$ --> $`x_3(x_1(x_2(C,B), x_2(A,A)), x_1(x_2(C,B), A))`$
-> 
-> $`x_2(A,A)`$ ist ein redundanter Test
-> 
-> 2. $`x_3(x_1(x_2(C,B), x_2(A,A)), x_1(x_2(C,B), A))`$ --> $`x_3(x_1(x_2(C,B), A), x_1(x_2(C,B), A))`$
-> 
-> Allgemeine Transformationsregel
-> 
-> 3. $`x_3(x_1(x_2(C,B), A), x_1(x_2(C,B), A))`$ --> $`x_1(x_3(x_2(C,B), x_2(C,B)), x_3(A, A))`$
-> 
-> $`x_3(A,A)`$ ist ein redundanter Test
-> $`x_3(x_2(C,B), x_2(C,B))`$ ist ein redundanter Test
-> 
-> 4. $`x_1(x_3(x_2(C,B), x_2(C,B)), x_3(A, A))`$ --> $`x_1(x_2(C,B), A)`$
-> 
+```
 
 so weit wie möglich.
 
@@ -226,7 +72,7 @@ beiliegenden Dokumentation vertraut.
 Laden Sie sich die Beispieldatensätze “Zoo” (`zoo.csv`) und “Restaurant”
 (`restaurant.csv`) aus dem AIMA-Repository
 ([github.com/aimacode/aima-data](https://github.com/aimacode/aima-data))
-herunter. Zum Laden der Beispieldatensätze in Weka müssen die
+herunter.[^2] Zum Laden der Beispieldatensätze in Weka müssen die
 `.csv`-Dateien eine Kopfzeile mit den Namen der Attribute haben. Passen
 Sie die Dateien entsprechend an und laden Sie diese im Reiter
 “Pre-Process” mit “Open file …”.
@@ -249,38 +95,6 @@ nachinstallieren.
     Trainingssatz? (Stellen Sie unter “Test options” den Haken auf “Use
     training set”.) Interpretieren Sie die **Confusion Matrix**.
 
-> ### restaurant.csv
-> Fehlerrate: 16.6667%  
-> Confusion Matrix:
-> 
-> ```
-> a b   <-- classified as
-> 4 2 | a = Yes
-> 0 6 | b = No
-> ```
->
-> Auf der Diagonal liegende Werte wurden richtig klassifiziert (Zeile 1 enthält 2 Fehler)
-> 
-> <img src='images/restaurant.png' alt='zoo' width='600'/>
-
-> ### zoo.csv
-> Fehlerrate: 0.9901 %  
-> Confusion Matrix:
-> ```
->  a  b  c  d  e  f  g   <-- classified as
-> 41  0  0  0  0  0  0 |  a = mammal
->  0 13  0  0  0  0  0 |  b = fish
->  0  0 20  0  0  0  0 |  c = bird
->  0  0  0 10  0  0  0 |  d = shellfish
->  0  0  0  0  8  0  0 |  e = insect
->  0  0  0  0  0  3  1 |  f = amphibian
->  0  0  0  0  0  0  5 |  g = reptile
-> ```
-> 
-> Ein Fehler (Zeile 6 enhält 1 Fehler)
-> 
-> <img src='images/zoo.png' alt='zoo' width='600'/>
-
 2.  ARFF-Format (1P)
 
     Lesen Sie in der beiliegenden Doku zum Thema “ARFF” nach. Dabei
@@ -292,15 +106,9 @@ nachinstallieren.
     Erklären Sie die Unterschiede zwischen “nominal”, “ordinal” (bzw.
     “numeric”) und “string”.
 
-> 1. nominal: reale Zahlen oder Integer Zahlen
-> 2. ordinal/numeric: Liste von möglichen Werten
-> 3. string: arbitrary Text input 
-
-  Konvertieren Sie den Zoo- und Restaurantdatensatz in das
-  ARFF-Format. Beachten Sie, dass die ID3-Implementierung von Weka
-  nicht mit bestimmten Attributtypen umgehen kann.
-
-> Files: [zoo.arff](zoo.arff),  [restaurant.arff](restaurant.arff)
+    Konvertieren Sie den Zoo- und Restaurantdatensatz in das
+    ARFF-Format. Beachten Sie, dass die ID3-Implementierung von Weka
+    nicht mit bestimmten Attributtypen umgehen kann.
 
 3.  Training mit ID3 und J48 (1P)
 
@@ -312,34 +120,18 @@ nachinstallieren.
     Fehlerraten, Confusion Matrix) untereinander und mit den Ergebnissen
     aus dem J48-Lauf mit den `.csv`-Dateien.
 
-> ### Restaurant (J48)
-> All identical to 2.
-
-> ### Restaurant (ID3)
-> Fehlerrate: 0%  
-> Confusion Matrix:
->
-> ```
-> a b   <-- classified as
-> 6 0 | a = Yes
-> 0 6 | b = No
-> ```
-> 
-> ```
-> Patrons = Some: Yes
-> Patrons = Full
-> |  Type = French: No
-> |  Type = Thai
-> |  |  Fri/Sat = Yes: Yes
-> |  |  Fri/Sat = No: No
-> |  Type = Burger
-> |  |  Alternate = Yes: Yes
-> |  |  Alternate = No: No
-> |  Type = Italian: No
-> Patrons = None: No
-> ```
-
-> ### Zoo (J48)
-> All identical to 2.
-
 *Thema*: Kennenlernen von Weka
+
+------------------------------------------------------------------------
+
+<img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" width="10%">
+
+Unless otherwise noted, this work is licensed under CC BY-SA 4.0.
+
+<blockquote><p><sup><sub><strong>Last modified:</strong> 12d767c (homework: spread the discussion tasks across the first four exercise sheets, 2025-09-15)<br></sub></sup></p></blockquote>
+
+[^1]: Im Python-Code tauchen immer wieder “TODO”-Marker auf - bitte mit
+    Vorsicht genießen!
+
+[^2]: Zum Zoo-Datensatz gibt es die Erklärung direkt im Repo, für den
+    Restaurant-Datensatz finden Sie die Erklärung im AIMA (Buch).
