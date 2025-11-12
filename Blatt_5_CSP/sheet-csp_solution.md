@@ -111,10 +111,34 @@ mit
 - $`c_4=\left((v_3,v_4), \lbrace (x,y) \in D^2 | x \ne y \rbrace\right)`$.
 
 1.  Zeichnen Sie den Constraint-Graph
+
+> [![](https://mermaid.ink/img/pako:eNpVkM1OxCAUhV8F79Z2wt9AS5yVLnXj0pAYIsy00UKDrVE7fXcB6yRuLpzzcS5wF3gJ1oGCUzRjh-4ftf94JrnQXFguXPviorquz3m9RgmjA2JntJ2jG6OFMXSzQfY_mOzkXQAr4OqQDQ5VekNvQU1xdhUMLg4mS1i0R0jD1LnBaVBpa0181aD9mjKj8U8hDH-xGOZTB-po3t6TmkdrJnfXm_S74eJG562Lt2H2EygiSw9QC3wmRflu3wrGCZYMt0TwCr5AUS52kjSCMN42eC8FXyv4LtfinZRtw2SLBRNYUEErcLafQnz4HWyZ7_oDDplrow?type=png)](https://mermaid.live/edit#pako:eNpVkM1OxCAUhV8F79Z2wt9AS5yVLnXj0pAYIsy00UKDrVE7fXcB6yRuLpzzcS5wF3gJ1oGCUzRjh-4ftf94JrnQXFguXPviorquz3m9RgmjA2JntJ2jG6OFMXSzQfY_mOzkXQAr4OqQDQ5VekNvQU1xdhUMLg4mS1i0R0jD1LnBaVBpa0181aD9mjKj8U8hDH-xGOZTB-po3t6TmkdrJnfXm_S74eJG562Lt2H2EygiSw9QC3wmRflu3wrGCZYMt0TwCr5AUS52kjSCMN42eC8FXyv4LtfinZRtw2SLBRNYUEErcLafQnz4HWyZ7_oDDplrow)
+> [![](https://mermaid.ink/img/pako:eNpVkM1OxCAUhV8F79Z2wt9AS5yVLnXj0pAYYplpkyk0SI3a6bsLWCdxc-Gcj3OBu8Cb7ywoOAUz9ejxWbuPV5ILzYXlwrUrLqrr-pLXW5QwOiB2Qds5ujFaGEN3G2T_g8lO3hWwAm4O2eBQpTcMHagYZlvBaMNosoRFO4Q0xN6OVoNK284ezXyOGrRbU2wy7sX78S8Z_HzqQR3N-T2peepMtA-DSR8cr26wrrPh3s8ugiKs9AC1wGdSlO_2rWCcYMlwSwSv4AsU5WInSSMI422D91LwtYLvci3eSdk2TLZYMIEFFbQC2w3Rh6ff2ZYRrz-V-Gzi?type=png)](https://mermaid.live/edit#pako:eNpVkM1OxCAUhV8F79Z2wt9AS5yVLnXj0pAYYplpkyk0SI3a6bsLWCdxc-Gcj3OBu8Cb7ywoOAUz9ejxWbuPV5ILzYXlwrUrLqrr-pLXW5QwOiB2Qds5ujFaGEN3G2T_g8lO3hWwAm4O2eBQpTcMHagYZlvBaMNosoRFO4Q0xN6OVoNK284ezXyOGrRbU2wy7sX78S8Z_HzqQR3N-T2peepMtA-DSR8cr26wrrPh3s8ugiKs9AC1wGdSlO_2rWCcYMlwSwSv4AsU5WInSSMI422D91LwtYLvci3eSdk2TLZYMIEFFbQC2w3Rh6ff2ZYRrz-V-Gzi)
+
 2.  Wenden Sie den AC-3-Algorithmus auf das CSP an. Geben Sie den
     Zustand der Queue und das Ergebnis von `ARC_Reduce`, d.h. den
     Ergebniszustand des aktuellen $`D_i`$, für jede Iteration des
     Algorithmus an.
+
+> result wir wie folgt dargestellt ($`v_1`$, $`v_2`$, $`v_3`$, $`v_4`$)
+> ```
+>  0. result: ([1-5],[1-5],[1-5],[1-5]);  Queue: [(v_1, v_2, c_1), (v_1, v_2, c_3), (v_2, v_3, c_2), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4)]
+>  1. result: ([1|2],[1-5],[1-5],[1-5]);  Queue: [(v_1, v_3, c_3), (v_2, v_3, c_2), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3)]
+>  2. result: ([1|2],[1-5],[1-5],[1-5]);  Queue: [(v_2, v_3, c_2), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3)]
+>  3. result: ([1|2],[1|2],[1-5],[1-5]);  Queue: [(v_2, v_1, c_1), (v_3, v_1, c_3), (v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2)]
+>  4. result: ([1|2],[1|2],[1-5],[1-5]);  Queue: [(v_3, v_1, c_3), (v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2)]
+>  5. result: ([1|2],[1|2],[1-5],[1-5]);  Queue: [(v_3, v_2, c_2), (v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2)]
+>  6. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_3, v_4, c_4), (v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+>  7. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_4, v_3, c_4), (v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+>  8. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_2, v_1, c_1), (v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+>  9. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_3, v_1, c_3), (v_1, v_2, c_1), (v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+> 10. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_1, v_2, c_1), (v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+> 11. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_3, v_2, c_2), (v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+> 12. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_2, v_3, c_2), (v_1, v_3, c_3), (v_4, v_3, c_4)]
+> 13. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_1, v_3, c_3), (v_4, v_3, c_4)]
+> 14. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: [(v_4, v_3, c_4)]
+> 15. result: ([1|2],[1|2],[1|2],[1-5]);  Queue: []
+> > ```
 
 *Thema*: Handsimulation des AC-3-Algorithmus
 
