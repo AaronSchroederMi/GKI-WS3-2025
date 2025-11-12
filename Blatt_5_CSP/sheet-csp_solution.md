@@ -158,8 +158,17 @@ $`\alpha = \lbrace v_1 \to  2 \rbrace`$.
     *Hinweis*: Sie müssen zur Lösung dieser Teilaufgabe nicht den AC-3
     nutze.
 
+> 0. v_1 (2), v_2 ([1-5]), v_3 ([1-5])
+> 1. v_1 (2), v_2 (1), v_3 (2)  
+> (v_4 wäre dann hier [1|3-5])
+
+
 2.  Führen Sie Forward-Checking in $`\alpha`$ aus. Vergleichen Sie das
     Ergebnis mit (1).
+
+> 0. v_1 (2), v_2 ([1-5]), v_3 ([1-5])
+> 1. v_1 (2), v_2 (1), v_3 ([2-5])  
+> (v_4 wäre dann hier [1-5])
 
 *Thema*: Kantenkonsistenz und Forward Checking verstehen
 
