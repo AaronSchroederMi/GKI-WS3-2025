@@ -203,6 +203,49 @@ geeignete Modellierung als CSP an. Definieren Sie sich ein paar
 Spielgeräte und lösen Sie das Problem mit Hilfe von *MAC* und
 *Min-Conflicts*.
 
+> CSP = $`(V, D, C)`$
+> 
+>$`V = \{Eingang, Notausgang, Bar, Hüpfburg, GoKartBahn, Kletterberg\}`$
+> 
+> $`D = ((Position),(Dimensionen)) = \{`$  
+>           $`D_{Eingang} = \{((0, [1-99]), (0, 1)), (([1-39], 0),(1, 0)),((40, [1-99]), (0, 1)), (([1-39], 100),(1, 0))\}`$,  
+>           $`D_{Notausgang} = ((20, 0), (2,0))`$,  
+>           $`D_{Bar} = \{(([0-10], [0-80]),(30, 20)), (([0-20], [0-70]),(20, 30))\}`$,  
+>           $`D_{Hüpfburg} = \{(([0-35],[0-95]),(5, 5))\}`$,  
+>           $`D_{GoKartBahn} = \{(([0-25],[0-80]),(15, 20)), (([0-20],[0-85]),(20, 15))\}`$,  
+>           $`D_{Kletterberg} = \{(([0-10],[0-70]),(30, 30))\}`$  
+> $`\}`$
+> 
+> $`C = \{`$  
+>          $`c_1 = ((v_1 \in V,v_2 \in (V/v_1)), \text{1 Meter Abstand})`$,  
+>          $`c_2 = (Eingang, Bar), \text{nicht mehr als 5 Meter entfernt})`$,  
+>          $`c_3 = (Bar, Kletterberg), \text{in Sichtfeld sein (alias: nicht mehr als 5 Meter entfernt)})`$,   
+> $`\}`$
+> 
+> 1 Meter Abstand: `(v_1.posX - 1 >= v_2.posX + v_2.sizeX || v_1.posX + v_1.sizeX <= v_2.posX - 1) && (v_1.posY - 1 >= v_2.posY + v_2.sizeY || v_1.posY + v_1.sizeY <= v_2.posY - 1)`  
+> nicht mehr als 5 Meter entfernt: `(v_1.posX - 5 <= v_2.posX + v_2.sizeX || v_1.posY + v_1.sizeY >= v_2.posY - 5) && (v_1.posY - 5 <= v_2.posY + v_2.sizeY || v_1.posY + v_1.sizeY >= v_2.posY - 5)`
+
+> ### MAC
+>|   Eingang    |  Notausgang  |                           Bar                            |   Hüpfburg   |   GoKartBahn   |  Kletterberg   | Domänenreduzierung (vereinfacht) |
+>|:------------:|:------------:|:--------------------------------------------------------:|:------------:|:--------------:|:--------------:|----------------------------------|
+>|  D_Eingang   | (20,0),(2,0) | D_Bar <br/>(- mit höchstens 5 Meter Abstand von Eingang) |  D_Hüpfburg  |  D_GoKartBahn  | D_Kletterberg  | Umkreis von Notausgang           |
+>| (18,0),(1,0) |      "       |                           ...                            |     ...      |      ...       |      ...       | Umkreis von Eingang              |
+>|      "       |      "       |                      (0,2),(30, 20)                      |     ...      |      ...       |      ...       | Umkreis von Bar                  |
+>|      "       |      "       |                            "                             | (31,0),(5,5) |      ...       |      ...       | Umkreis von Hüpfburg             |
+>|      "       |      "       |                            "                             |      "       |      ...       | (0,23),(30,30) | Umkreis von Kletterberg          |
+>|      "       |      "       |                            "                             |      "       | (0,54),(20,15) |       "        |                                  |
+
+> ### Min-Conflict
+> 
+>|   Eingang    |  Notausgang  |      Bar       |   Hüpfburg   |   GoKartBahn    |   Kletterberg   |                                                                         Probleme |
+>|:------------:|:------------:|:--------------:|:------------:|:---------------:|:---------------:|---------------------------------------------------------------------------------:|
+>| (0,67),(0,1) | (20,0),(2,0) | (8,29),(20,30) | (4,10),(5,5) | (7,53),(20,15)  | (7,12),(30,30)  | c_2, c_1 (Bar, GoKartBahn),<br/>(Kletterberg, Bar),<br/>(Kletterberg, Hüpfburg), |
+>|      "       |      "       | (5,70),(20,30) |      "       |        "        |        "        |                                                 c_3, c_1 (Kletterberg, Hüpfburg) |
+>|      "       |      "       |       "        |      "       |        "        | (10,37),(30,30) |                                                    c_1 (Kletterberg, GoKartBahn) |
+>|      "       |      "       |       "        |      "       | (25,37),(20,15) |        "        |                                                                                  |
+>| (0,67),(0,1) | (20,0),(2,0) | (5,70),(20,30) | (4,10),(5,5) | (25,37),(20,15) | (10,37),(30,30) |                                                                                  |
+>
+
 *Thema*: Modellierung eines Real-World-Problems
 
 ## Bonus: DSL für Constraint Solving: MiniZinc (2P)
