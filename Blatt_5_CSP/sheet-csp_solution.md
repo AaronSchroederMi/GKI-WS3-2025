@@ -75,12 +75,25 @@ Lösen Sie nun das obige Rätsel (aus CSP.01):
 2.  Erweitern Sie den Algorithmus um die Heuristiken MRV und
     Gradheuristik und lösen Sie das Problem erneut. Vergleichen Sie die
     Ergebnisse und die Laufzeit der beiden Experimente.
+
+> \*, \*, \*, \*, \*  
+> Wähle V mit MRV: c oder a  
+> Wähle V mit LCV: ?  
+> ...
+> 
+> Ich bin mir ein Wenig unsicher wie man hier den LCV berechnet, da ja alle Constraints (zumindest in meiner Modellierung), global wirken
+
 3.  Wenden Sie vor dem Start von `BT_Search` den AC-3 an. Erhalten Sie
     damit bereits eine Lösung (bzw. Unlösbarkeit)? Falls nicht, wenden
     Sie anschließend den ergänzten Algorithmus aus Schritt (2) an.
     Vergleichen Sie wieder die Ergebnisse und die Laufzeiten.
+
+> Es liefert eine Lösung da das Zebra Rätsel nur eine Lösung hat und somit die Constraints nur aller erfüllt werden können, wenn die richtige Lösung gefunden wurde
+
 4.  Wenden Sie die *Min-Conflicts* Heuristik zur Lösung des Problems an.
     Vergleichen Sie wieder die Ergebnisse und die Laufzeiten.
+
+> findet Lösung nur mit einer Gewissen Wahrscheinlichkeit. kann sich verhängen ist für dieses Problem etwas ungeeignet
 
 Sie können dafür eine Handsimulation anwenden oder die Algorithmen
 implementieren. Sie können gern auch die Java-Klassen im Paket
