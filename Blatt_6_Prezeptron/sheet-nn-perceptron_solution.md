@@ -7,12 +7,17 @@
   Trennebene und markieren Sie den Bereich, der mit $`+1`$ klassifiziert
   wird.
 
+> ![01.01](Blatt_6_Prezeptron/images/entscheidungsgrenze.png)
+
 - (1P) Welche der folgenden Perzeptrons haben die selbe Trennebene?
   Welche weisen exakt die gleiche Klassifikation auf?
-  - $`(w_0,w_1,w_2)^T = (1, 0.5, 0.5)^T`$
-  - $`(w_0,w_1,w_2)^T = (200, 100, 100)^T`$
-  - $`(w_0,w_1,w_2)^T = (\sqrt{2}, \sqrt{1}, \sqrt{1})^T`$
-  - $`(w_0,w_1,w_2)^T = (-2, -1, -1)^T`$
+  1. $`(w_0,w_1,w_2)^T = (1, 0.5, 0.5)^T`$
+  2. $`(w_0,w_1,w_2)^T = (200, 100, 100)^T`$
+  3. $`(w_0,w_1,w_2)^T = (\sqrt{2}, \sqrt{1}, \sqrt{1})^T`$
+  4. $`(w_0,w_1,w_2)^T = (-2, -1, -1)^T`$
+
+> i. und ii. und iii. sind identisch  
+> iv. ist rechtwinklig zu i. und ii. und iii.
 
 *Thema*: Verständnis Interpretation Perzeptron
 (Trennebene/Entscheidungsgrenze)
@@ -56,9 +61,9 @@ hintereinander aus. Initialisieren Sie jedes Mal die Gewichte mit $`0`$.
 Wählen Sie in jedem Lernschritt einen Punkt $`\mathbf{x}^{(i)}`$
 *zufällig* aus der Menge der falsch klassifizierten Punkte und
 aktualisieren Sie die Gewichte entsprechend der folgenden Formel:
-``` math
+$$
 \mathbf{w}:=\mathbf{w}+\alpha ( y^{(i)} - h(\mathbf{x}^{(i)}) ) \mathbf{x}^{(i)}
-```
+$$
 
 Nehmen Sie $`\alpha=1`$ als Lernrate. Halten Sie für jeden Durchlauf
 fest, wie viele Schritte der Algorithmus benötigt, um zu der endgültigen
