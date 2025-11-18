@@ -7,7 +7,7 @@
   Trennebene und markieren Sie den Bereich, der mit $`+1`$ klassifiziert
   wird.
 
-> ![01.01](Blatt_6_Prezeptron/images/entscheidungsgrenze.png)
+> ![01.01](images/entscheidungsgrenze.png)
 
 - (1P) Welche der folgenden Perzeptrons haben die selbe Trennebene?
   Welche weisen exakt die gleiche Klassifikation auf?
@@ -28,9 +28,17 @@
   Funktionen verwendet werden. Implementieren Sie die binären
   Logikfunktionen UND, ODER und KOMPLEMENT und demonstrieren Sie Ihre
   Implementierung in der Übung/im Praktikum.
+
+> ### UND: $`(w_0, w_1, w_2) = (-0.9, 0.5, 0.5)`$
+> ### ODER: $`(w_0, w_1, w_2) = (-0.9, 1, 1)`$
+> ### KOMPLEMENT / NOT: $`(w_0, w_1) = (0.9, -1)`$
+
 - (0.5P) Eine grundlegende Einschränkung des Perzeptrons besteht darin,
   dass es die EXKLUSIV-ODER-Funktion nicht implementieren kann. Erklären
   Sie den Grund für diese Einschränkung.
+
+> Die Ergebnisse lassen sich nicht linear Klassifizieren  
+> ![XOR](images/XOR.png)
 
 *Thema*: Verständnis Perzeptron
 
@@ -45,14 +53,48 @@ empirische Approximation zu bestimmen.
 - Konstruieren Sie Ihren eigenen Datensatz $`\mathcal{D}`$ mit $`m=10`$
   gleichförmig verteilten Zufallspunkten aus dem Bereich
   $`\mathcal{X}=[-1, 1]\times[-1, 1]`$.
+
+> | $`x^{(m)}`$  | x                   | y                     |
+> |--------------|---------------------|-----------------------|
+> | $`x^{(1)}`$  | -0.901589782527364  | 0.0047553359138630125 |
+> | $`x^{(2)}`$  | 0.23480414408445038 | 0.7620084184131708    |
+> | $`x^{(3)}`$  | -0.8810756505498272 | 0.5716233454621114    |
+> | $`x^{(4)}`$  | 0.5822780505159197  | -0.23404096108949335  |
+> | $`x^{(5)}`$  | -0.48224194318477   | 0.28232903736665804   |
+> | $`x^{(6)}`$  | -0.7805014064806628 | -0.7213676003726164   |
+> | $`x^{(7)}`$  | -0.5644304939678835 | 0.049802334031829876  |
+> | $`x^{(8)}`$  | 0.9077723425096069  | 0.30957016551788885   |
+> | $`x^{(9)}`$  | 0.07974604845239752 | 0.4169258575705268    |
+> | $`x^{(10)}`$ | 0.862727521994497   | -0.13826818093617632  |
+
+
 - Wählen Sie auf ähnliche Weise zwei zufällige, gleichmäßig verteilte
   Punkte aus dem Bereich $`[-1, 1]\times[-1, 1]`$. Verwenden Sie die
   Gerade, die durch diese zwei Punkte verläuft, als die
   Entscheidungsgrenze Ihrer Zielfunktion $`f`$. Sie können die positiv
   beschriftete Seite beliebig festlegen.
+
+> Punkt1: [-0.9926578718525403, 0.570007979578977], Punkt2: [0.7723616470074421, -0.19701873610789855]  
+> $`f(x) = -0.4307x+0.1393`$
+
 - Werten Sie die Zielfunktion für jeden Datenpunkt $`\mathbf{x}^{(j)}`$
   aus, um die entsprechenden Beschriftungen (Ausgangslabel) $`y^{(j)}`$
   zu erhalten.
+
+>| $`x^{(m)}`$  | x                   | y                     | $`y^{(j)}`$ |
+>|--------------|---------------------|-----------------------|-------------|
+>| $`x^{(1)}`$  | -0.901589782527364  | 0.0047553359138630125 | 1           |
+>| $`x^{(2)}`$  | 0.23480414408445038 | 0.7620084184131708    | -1          |
+>| $`x^{(3)}`$  | -0.8810756505498272 | 0.5716233454621114    | 1           |
+>| $`x^{(4)}`$  | 0.5822780505159197  | -0.23404096108949335  | 1           |
+>| $`x^{(5)}`$  | -0.48224194318477   | 0.28232903736665804   | 1           |
+>| $`x^{(6)}`$  | -0.7805014064806628 | -0.7213676003726164   | 1           |
+>| $`x^{(7)}`$  | -0.5644304939678835 | 0.049802334031829876  | 1           |
+>| $`x^{(8)}`$  | 0.9077723425096069  | 0.30957016551788885   | -1          |
+>| $`x^{(9)}`$  | 0.07974604845239752 | 0.4169258575705268    | -1          |
+>| $`x^{(10)}`$ | 0.862727521994497   | -0.13826818093617632  | -1          |
+>
+> ![ZufallsScatterPlot](images/Zufallswerte.png)
 
 ### Training (3P)
 
