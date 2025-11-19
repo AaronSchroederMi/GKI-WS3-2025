@@ -113,6 +113,28 @@ Hypothese $`h^{*}(\mathbf{x})`$ zu konvergieren. Berechnen Sie am Ende
 die durchschnittliche Anzahl von benötigten Schritten. In welcher
 Größenordnung liegt sie?
 
+```
+Iteration: 105
+weights: [-1.         -4.29957352  2.73972354]
+-----------------------------------------
+1.0  !=  1 True
+-1.0  !=  -1 True
+1.0  !=  1 True
+1.0  !=  1 True
+1.0  !=  1 True
+1.0  !=  1 True
+1.0  !=  1 True
+-1.0  !=  -1 True
+-1.0  !=  -1 True
+-1.0  !=  -1 True
+misclassified at Index:  []
+misclassified 0 entries
+-----------------------------------------
+```
+
+> [weights_iterations](images/weights_iterations.csv)  
+> Average Iterations = 94,49494949
+
 ### Experimente (2P)
 
 Wiederholen Sie das obige Experiment mit $`m=100`$ und $`m=1000`$
@@ -124,6 +146,12 @@ Um eine zuverlässigere Schätzung zu erhalten, können Sie dasselbe
 Experiment mehrfach mit anderen zufällig generierten Datensätzen
 derselben Größe $`m`$ wiederholen und danach den Durchschnitt über alle
 Wiederholungen betrachten.
+
+>m = 100  
+> Average Iterations = 60,76
+
+> m=1000  
+> Average Iterations = 300,4747475
 
 ### Visualisierung (optional)
 
