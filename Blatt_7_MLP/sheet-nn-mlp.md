@@ -25,9 +25,29 @@ verwendet.
 - Was sind die Dimensionen der Gewichtsmatrizen $`W^{[1]}`$, $`W^{[2]}`$
   und $`W^{[3]}`$ und der Bias-Vektoren $`b^{[1]}`$, $`b^{[2]}`$ und
   $`b^{[3]}`$?
+
+> $`W^{[1]} = 1600\;(R^{64*25})`$  
+> $`W^{[2]} = 2048\;(R^{32*64})`$  
+> $`W^{[3]} = 128\;(R^{4*32})`$  
+> $`b^{[1]} = 64\;(R^{64*1})`$   
+> $`b^{[2]} = 32\;(R^{32*1})`$  
+> $`b^{[3]} = 4\;(R^{4*1})`$  
+
 - Wie wird die Ausgabe berechnet? Schreiben Sie den Vorwärtslauf in
   Matrix-Notation auf. Wie könnte man die Ausgabe deuten; welches
   Problem könnte durch dieses Netzwerk möglicherweise gelöst werden?
+
+
+> $`z^{[1]} = W^{[1]}x+b^{[1]}`$  
+> $`a^{[1]} = ReLu(z^{[1]})`$
+> 
+> $`z^{[2]} = W^{[2]}a^{[1]}+b^{[2]}`$  
+> $`a^{[2]} = ReLu(z^{[2]})`$
+> 
+> $`z^{[3]} = W^{[3]}a^{[2]}+b^{[3]}`$  
+> $`a^{[3]} = ReLu(z^{[3]})`$
+> 
+> Eine Klassifizierung eines Unregelmäßigen Cluster wäre hier gut möglich, wobei dieses Modell nicht nur Binär klassifiziert
 
 ## NN.MLP.03: Tensorflow Playground (6P)
 
