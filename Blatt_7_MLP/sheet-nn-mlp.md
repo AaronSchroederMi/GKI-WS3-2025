@@ -63,14 +63,22 @@ Reload-Knopf setzt das Netzwerk zurück.
     auf dem “**Gaussian**” Datensatz (linear separierbarer Datensatz
     links-unten), danach auf den anderen Datensätzen.
 
+>|              | Entscheidungsgrenze | Trainingskosten | Testkosten | Konvergenzgeschwindigkeit | Konsistenz des Ergebnisses | Hidden Layers | Anmerkung                 |
+>|--------------|---------------------|-----------------|------------|---------------------------|----------------------------|---------------|---------------------------|
+>| Gaussian     | lineare Grenze      | 0.000           | 0.000      | ca. 0.300                 | wiederholbar               |               |                           |
+>| Circle       | lineare Grenze      | 0.501           | 0.510      | ca. 0.030                 | wiederholbar               |               | Priorisiert inneren Kreis |
+>| Exclusive or | lineare Grenze      | 0.502           | 0.529      | ca. 0.030                 | wiederholbar               |               | Priorisiert Orange Daten  |
+>| Spiral       | linare Grenze       | 0.464           | 0.499      | ca. 0.030                 | wiederholbar               |               |                           |
+
+
 2.  (3P) Trainieren Sie ein **MLP** mit
 
-    - einer versteckten Schicht mit 2 Neuronen,
-    - einer versteckten Schicht mit 3 Neuronen,
-    - einer versteckten Schicht mit 5 Neuronen,
-    - zwei versteckten Schichten mit jeweils 5 Neuronen pro Schicht
-    - drei versteckten Schichten mit jeweils 7 Neuronen pro Schicht
-    - vier versteckten Schichten mit jeweils 7 Neuronen pro Schicht
+    1. einer versteckten Schicht mit 2 Neuronen, 
+    2. einer versteckten Schicht mit 3 Neuronen, 
+    3. einer versteckten Schicht mit 5 Neuronen, 
+    4. zwei versteckten Schichten mit jeweils 5 Neuronen pro Schicht 
+    5. drei versteckten Schichten mit jeweils 7 Neuronen pro Schicht 
+    6. vier versteckten Schichten mit jeweils 7 Neuronen pro Schicht
 
     auf dem kreisförmigen (**Circle**) und auf dem spiralförmigen
     (**Spiral**) Datensatz, mehrmals mit jeweils den
@@ -78,9 +86,36 @@ Reload-Knopf setzt das Netzwerk zurück.
     Aktivierungsfunktion einen Einfluss auf die Form der
     Entscheidungsgrenze oder die Geschwindigkeit der Berechnung?
 
+>| Circle       | Entscheidungsgrenze                        | Trainingskosten | Testkosten | Konvergenzgeschwindigkeit | Konsistenz des Ergebnisses | Hidden Layers                                                                   | Anmerkung                                          |
+>|--------------|--------------------------------------------|-----------------|------------|---------------------------|----------------------------|---------------------------------------------------------------------------------|----------------------------------------------------|
+|| i. ReLu      | unregelmäßiges Rechteck (wächst unendlich) | ca. 0.233       | ca. 0.320  | ca. 0.200                 | nicht wiederholbar         | einfarbig                                                                       | seperiert Unregelmäßig; Overfitting                |
+|| i. Tanh      | Parable                                    | ca. 0.226       | ca. 0.242  | ca. 0.600                 | nicht wiederholbar         | Linearegrenze                                                                   | seperiret Unregelmäßig; Resistenter zu Overfitting |
+|| i. Sigmoid   | Parable                                    | ca. 0.229       | ca. 0.290  | ca. 0.400                 | nicht wiederholbar         | einfarbig                                                                       | seperiert Unregelmäßig; Overfitting                |
+|| ii. ReLu     | unregelmäßiges Rechteck (6-Eck möglich)    | ca. 0.000       | ca. 0.003  | ca. 1.000                 | wiederholbar (-ish)        | einfarbig                                                                       | kann sich kurz verhängen                           |
+|| ii. Tanh     | abgerundetes Dreieck                       | ca. 0.001       | ca. 0.004  | ca. 5.000                 | wiederholbar (-ish)        | Linearegrenze                                                                   |                                                    |
+|| ii. Sigmoid  | abgerundetes Dreieck                       | ca. 0.001       | ca. 0.006  | ca. 7.000                 | wiederholbar (-ish)        | einfarbig                                                                       | kann sich kurz verhängen                           |
+|| iii. ReLu    | unregelmäßiges Vieleck                     | ca. 0.000       | ca. 0.005  | ca. 2.000                 | wiederholbar (-ish)        | einfarbig                                                                       |                                                    |
+|| iii. Tanh    | abgerundeteres Dreieck                     | ca. 0.001       | ca. 0.003  | ca. 2.000                 | wiederholbar (-ish)        | Linearegrenze                                                                   |                                                    |
+|| iii. Sigmoid | abgerundeteres Dreieck                     | ca. 0.001       | ca. 0.003  | ca. 5.000                 | wiederholbar (-ish)        | einfarbig                                                                       | kann sich kurz verhängen                           |
+|| iv. ReLu     | unregelmäßiges Vieleck                     | ca. 0.000       | ca. 0.000  | ca. 2.000                 | wiederholbar (-ish)        | einfarbig                                                                       |                                                    |
+|| iv. Tanh     | abgerundeteres Dreieck                     | ca. 0.000       | ca. 0.001  | ca. 1.500                 | wiederholbar (-ish)        | Linearegrenze; unregelmäßige Formen                                             |                                                    |
+|| iv. Sigmoid  | abgerundeteres Dreieck                     | ca. 0.001       | ca. 0.002  | ca. 3.000                 | wiederholbar (-ish)        | einfarbig                                                                       | kann sich kurz verhängen                           |
+|| v. ReLu      | unregelmäßiges Vieleck                     | ca. 0.000       | ca. 0.000  | ca. 0.500                 | wiederholbar (-ish)        | einfarbig                                                                       |                                                    |
+|| v. Tanh      | abgerundetereres Dreieck                   | ca. 0.000       | ca. 0.000  | ca. 0.600                 | wiederholbar (-ish)        | Linearegrenze; unregelmäßige Formen; unregelmäßige Formen                       |                                                    |
+|| v. Sigmoid   | abgerundetereres Dreieck                   | ca. 0.001       | ca. 0.000  | ca. 5.000                 | wiederholbar (-ish)        | einfarbig                                                                       | kann sich kurz verhängen                           |
+|| vi. ReLu     | unregelmäßiges Vieleck                     | ca. 0.000       | ca. 0.000  | ca. 0.300                 | wiederholbar (-ish)        | einfarbig                                                                       |                                                    |
+|| vi. Tanh     | abgerundetereres Dreieck                   | ca. 0.000       | ca. 0.000  | ca. 0.500                 | wiederholbar (-ish)        | Linearegrenze; unregelmäßige Formen; unregelmäßige Formen; unregelmäßige Formen |                                                    |
+|| vi. Sigmoid  | abgerundetereres Dreieck                   | ca. 0.500       | ca. 0.500  | ca. 10.000                | nicht wiederholbar         | einfarbig                                                                       | kann sich daurhaft verhängen                       |                            
+
+> Spiral wird sich ähnlich verhalten, wobei eine Spiral Klassifizierung komplexere Modelle Benötigt
+
 3.  (2P) Setzen Sie nun den **Noise-Level auf 15** und wiederholen Sie
     die Experimente. Wann kann von einer Überanpassung gesprochen
     werden?
+
+> Sigmoid: empfindlich gegen Noise
+> Tanh: tendenziell Robuster
+> ReLu: am robustesten 
 
 Sprechen Sie für alle Experimente die folgenden Punkte an:
 
