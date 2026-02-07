@@ -27,15 +27,19 @@ skalaren Input $`x`$ und berechnet daraus die Ausgabe $`y`$. Beide
 Zellen verwenden die Aktivierungsfunktion
 $`\sigma(z) = \frac{1}{ 1 + e^{-z} }`$.
 
-<p align="center"><picture><source media="(prefers-color-scheme: light)" srcset="images/mlp_light.png"><source media="(prefers-color-scheme: dark)" srcset="images/mlp_dark.png"><img src="images/mlp.png" width="50%"></picture></p><p align="center">Abbildung
-1</p>
+<img src="mlp_dark.png">
 
 - (1P) Berechnen Sie die Ausgabe $`y`$ für die Eingabe
   $`(x,y_T)=(0, 0.5)`$. Wie groß ist der Fehler?
 
+> $`y = 2,8815963875`$  
+> $`E = \frac{1}{2}(0.5 - 2,8815963875)^2 = 2,2438169327`$
+
 - (1P) Berechnen Sie die partiellen Ableitungen für die Gewichte. Wie
   lauten die Gewichtsupdates für das obige Trainingsbeispiel? Setzen Sie
   $`\alpha = 0.01`$.
+
+> 
 
 ## NN.Backprop.03: MLP und Backpropagation (6P)
 
